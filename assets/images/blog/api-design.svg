@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="apiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EC4899;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#apiGrad)"/>
+
+  <!-- Icon - API/Configuration -->
+  <g transform="translate(400, 200)">
+    <!-- Code brackets representing API -->
+    <g opacity="0.9">
+      <!-- Left bracket -->
+      <path d="M-80,-40 L-100,-40 L-100,40 L-80,40 M-100,-40 L-110,-30 L-110,30 L-100,40" 
+            fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      
+      <!-- Right bracket -->
+      <path d="M80,-40 L100,-40 L100,40 L80,40 M100,-40 L110,-30 L110,30 L100,40" 
+            fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    
+    <!-- Configuration file in center -->
+    <rect x="-40" y="-20" width="80" height="50" rx="4" fill="rgba(255,255,255,0.25)" stroke="white" stroke-width="2"/>
+    <line x1="-35" y1="-10" x2="35" y2="-10" stroke="white" stroke-width="2"/>
+    <line x1="-35" y1="0" x2="25" y2="0" stroke="white" stroke-width="2"/>
+    <line x1="-35" y1="10" x2="30" y2="10" stroke="white" stroke-width="2"/>
+    <line x1="-35" y1="20" x2="20" y2="20" stroke="white" stroke-width="2"/>
+    
+    <!-- Connection lines from brackets to config -->
+    <line x1="-80" y1="0" x2="-40" y2="5" stroke="white" stroke-width="2" opacity="0.6"/>
+    <line x1="80" y1="0" x2="40" y2="5" stroke="white" stroke-width="2" opacity="0.6"/>
+    
+    <!-- Small nodes/endpoints -->
+    <circle cx="-90" cy="-20" r="4" fill="white"/>
+    <circle cx="-90" cy="0" r="4" fill="white"/>
+    <circle cx="-90" cy="20" r="4" fill="white"/>
+    <circle cx="90" cy="-20" r="4" fill="white"/>
+    <circle cx="90" cy="0" r="4" fill="white"/>
+    <circle cx="90" cy="20" r="4" fill="white"/>
+  </g>
+
+  <!-- Text -->
+  <text x="400" y="360" font-family="Arial, sans-serif" font-size="40" font-weight="bold"
+        fill="white" text-anchor="middle">Configuration API Design</text>
+  <text x="400" y="400" font-family="Arial, sans-serif" font-size="22"
+        fill="rgba(255,255,255,0.9)" text-anchor="middle">Making Static Sites Configurable</text>
+</svg>

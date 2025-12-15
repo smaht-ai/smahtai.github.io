@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1C1917;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#292524;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3F3F46;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glow3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#F97316;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#F97316;stop-opacity:0" />
+    </radialGradient>
+    <filter id="glow3-filter">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#gradient3)"/>
+  <rect width="800" height="600" fill="url(#glow3)"/>
+
+  <!-- Network connection pattern -->
+  <g opacity="0.12">
+    <defs>
+      <pattern id="network" width="80" height="80" patternUnits="userSpaceOnUse">
+        <circle cx="40" cy="40" r="2" fill="#FB923C"/>
+        <line x1="40" y1="40" x2="80" y2="40" stroke="#FB923C" stroke-width="1"/>
+        <line x1="40" y1="40" x2="40" y2="80" stroke="#FB923C" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="800" height="600" fill="url(#network)"/>
+  </g>
+
+  <!-- Central Icon: Connected Community -->
+  <g transform="translate(400, 200)" filter="url(#glow3-filter)">
+    <!-- Left person -->
+    <g opacity="0.9">
+      <circle cx="-60" cy="-10" r="22" fill="#FB923C" opacity="0.95"/>
+      <circle cx="-60" cy="-10" r="22" fill="#F97316" opacity="0.6"/>
+      <path d="M -60 12 Q -60 32 -80 32 L -80 50 L -40 50 L -40 32 Q -60 32 -60 12" fill="#FB923C" opacity="0.95"/>
+      <path d="M -60 12 Q -60 32 -80 32 L -80 50 L -40 50 L -40 32 Q -60 32 -60 12" fill="#F97316" opacity="0.6"/>
+    </g>
+    
+    <!-- Center person (larger, more prominent) -->
+    <g opacity="1">
+      <circle cx="0" cy="-15" r="28" fill="#F97316" opacity="1"/>
+      <circle cx="0" cy="-15" r="28" fill="#FB923C" opacity="0.4"/>
+      <path d="M 0 13 Q 0 35 -25 35 L -25 55 L 25 55 L 25 35 Q 0 35 0 13" fill="#F97316" opacity="1"/>
+      <path d="M 0 13 Q 0 35 -25 35 L -25 55 L 25 55 L 25 35 Q 0 35 0 13" fill="#FB923C" opacity="0.4"/>
+    </g>
+    
+    <!-- Right person -->
+    <g opacity="0.9">
+      <circle cx="60" cy="-10" r="22" fill="#FB923C" opacity="0.95"/>
+      <circle cx="60" cy="-10" r="22" fill="#F97316" opacity="0.6"/>
+      <path d="M 60 12 Q 60 32 40 32 L 40 50 L 80 50 L 80 32 Q 60 32 60 12" fill="#FB923C" opacity="0.95"/>
+      <path d="M 60 12 Q 60 32 40 32 L 40 50 L 80 50 L 80 32 Q 60 32 60 12" fill="#F97316" opacity="0.6"/>
+    </g>
+    
+    <!-- Connection lines with glow -->
+    <line x1="-38" y1="-10" x2="38" y2="-10" stroke="#F97316" stroke-width="3" opacity="0.7"/>
+    <line x1="-38" y1="-10" x2="38" y2="-10" stroke="#FB923C" stroke-width="1.5" opacity="0.5"/>
+    
+    <!-- Additional network nodes -->
+    <circle cx="-30" cy="35" r="4" fill="#FB923C" opacity="0.8"/>
+    <circle cx="0" cy="40" r="5" fill="#F97316" opacity="0.9"/>
+    <circle cx="30" cy="35" r="4" fill="#FB923C" opacity="0.8"/>
+  </g>
+
+  <!-- Title with shadow effect -->
+  <text x="400" y="360" font-family="Arial, sans-serif" font-size="42" font-weight="bold"
+        fill="#1C1917" text-anchor="middle" letter-spacing="1">Building in Public: Lessons Learned</text>
+  <text x="400" y="360" font-family="Arial, sans-serif" font-size="42" font-weight="bold"
+        fill="#FED7AA" text-anchor="middle" letter-spacing="1" opacity="0.95">Building in Public: Lessons Learned</text>
+
+  <!-- Subtitle -->
+  <text x="400" y="400" font-family="Arial, sans-serif" font-size="22"
+        fill="rgba(251,146,60,0.85)" text-anchor="middle" letter-spacing="0.5">Startup Conference</text>
+</svg>

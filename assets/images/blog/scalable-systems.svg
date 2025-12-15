@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="scalableGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#scalableGrad)"/>
+
+  <!-- Icon - Static site architecture -->
+  <g transform="translate(400, 200)">
+    <!-- Cloud/CDN -->
+    <ellipse cx="0" cy="-50" rx="60" ry="30" fill="rgba(255,255,255,0.2)" stroke="white" stroke-width="2"/>
+    <path d="M-40,-50 Q-20,-60 0,-50 Q20,-60 40,-50" fill="none" stroke="white" stroke-width="2"/>
+    
+    <!-- Static files -->
+    <rect x="-80" y="10" width="50" height="60" rx="4" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="2"/>
+    <line x1="-70" y1="25" x2="-30" y2="25" stroke="white" stroke-width="2"/>
+    <line x1="-70" y1="40" x2="-30" y2="40" stroke="white" stroke-width="2"/>
+    <line x1="-70" y1="55" x2="-30" y2="55" stroke="white" stroke-width="2"/>
+    
+    <rect x="-15" y="10" width="50" height="60" rx="4" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="2"/>
+    <line x1="-5" y1="25" x2="35" y2="25" stroke="white" stroke-width="2"/>
+    <line x1="-5" y1="40" x2="35" y2="40" stroke="white" stroke-width="2"/>
+    <line x1="-5" y1="55" x2="35" y2="55" stroke="white" stroke-width="2"/>
+    
+    <rect x="50" y="10" width="50" height="60" rx="4" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="2"/>
+    <line x1="60" y1="25" x2="100" y2="25" stroke="white" stroke-width="2"/>
+    <line x1="60" y1="40" x2="100" y2="40" stroke="white" stroke-width="2"/>
+    <line x1="60" y1="55" x2="100" y2="55" stroke="white" stroke-width="2"/>
+    
+    <!-- Arrows from cloud to files -->
+    <line x1="-20" y1="-30" x2="-55" y2="10" stroke="white" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="0" y1="-30" x2="0" y2="10" stroke="white" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="20" y1="-30" x2="55" y2="10" stroke="white" stroke-width="2" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <polygon points="0,0 10,5 0,10" fill="white"/>
+    </marker>
+  </defs>
+
+  <!-- Text -->
+  <text x="400" y="360" font-family="Arial, sans-serif" font-size="40" font-weight="bold"
+        fill="white" text-anchor="middle">Building Scalable Static Sites</text>
+  <text x="400" y="400" font-family="Arial, sans-serif" font-size="22"
+        fill="rgba(255,255,255,0.9)" text-anchor="middle">Why Jekyll and GitHub Pages Scale</text>
+</svg>

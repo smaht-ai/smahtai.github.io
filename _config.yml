@@ -1,0 +1,180 @@
+title: Your Company Name
+author:
+  name: Your Name
+  email: "hello@yourcompany.com"
+description: > # this means to ignore newlines until "show_excerpts:"
+  Your company provides innovative solutions and expert guidance
+  for growing businesses.
+
+show_excerpts: false # set to true to show excerpts on the homepage
+permalink: pretty
+baseurl: ""
+
+# Calendly integration (optional - remove if not using)
+# calendly_url: "https://calendly.com/yourcompany"
+
+# Minima date format
+# refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
+minima:
+  date_format: "%b %-d, %Y"
+
+  #skin: classic
+  skin: dark
+  #skin: solarized-dark
+  #skin: solarized
+
+  # generate social links in footer
+  social_links:
+    twitter: yourcompany
+    github:  yourcompany
+    # devto: jekyll
+    # dribbble: jekyll
+    # facebook: jekyll
+    # flickr:   jekyll
+    # instagram: jekyll
+    linkedin: yourcompany
+    # pinterest: jekyll
+    # youtube: jekyll
+    # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
+    # youtube_channel_name: CloudCannon
+    # telegram: jekyll
+    # googleplus: +jekyll
+    # microdotblog: jekyll
+    # keybase: jekyll
+
+    # Mastodon instances
+    # mastodon:
+    # - username: jekyll
+    #   instance: example.com
+    # - username: jekyll2
+    #   instance: example.com
+
+    # GitLab instances
+    # gitlab:
+    # - username: jekyll
+    #   instance: example.com
+    # - username: jekyll2
+    #   instance: example.com
+
+# Header navigation menu
+header_pages:
+  - title: "Products"
+    url: "#"
+    children:
+      - title: "Overview"
+        url: "/products"
+      - title: "Features"
+        url: "/features"
+  - title: "Docs"
+    url: "#"
+    children:
+      - title: "Getting Started"
+        url: "/docs/getting-started"
+      - title: "User Guide"
+        url: "/docs/user-guide"
+      - title: "API Reference"
+        url: "/docs/api-reference"
+      - title: "Architecture"
+        url: "/docs/architecture"
+  - title: "Resources"
+    url: "#"
+    children:
+      - title: "Blog"
+        url: "/blog"
+      - title: "Talks"
+        url: "/talks"
+      - title: "Case Studies"
+        url: "/case-studies"
+  - title: "Company"
+    url: "#"
+    children:
+      - title: "About"
+        url: "/about"
+      - title: "Contact"
+        url: "/contact"
+  - title: "Get Started"
+    url: "/contact"
+    button_style: "solid"
+
+# Footer sitemap - simplified navigation for footer display
+site_map:
+  - title: "Products"
+    links:
+      - title: "Overview"
+        url: "/products"
+      - title: "Features"
+        url: "/features"
+  - title: "Documentation"
+    links:
+      - title: "Getting Started"
+        url: "/docs/getting-started"
+      - title: "User Guide"
+        url: "/docs/user-guide"
+      - title: "API Reference"
+        url: "/docs/api-reference"
+      - title: "Architecture"
+        url: "/docs/architecture"
+  - title: "Resources"
+    links:
+      - title: "Blog"
+        url: "/blog"
+      - title: "Talks"
+        url: "/talks"
+      - title: "Case Studies"
+        url: "/case-studies"
+  - title: "Company"
+    links:
+      - title: "About"
+        url: "/about"
+      - title: "Contact"
+        url: "/contact"
+
+# Build settings
+theme: analytiq-pages-theme
+
+# Exclude files from Jekyll processing
+# These files will not be processed or appear as pages on the site
+exclude:
+  - AGENTS.md
+  - CLAUDE.md
+  - SVG_STYLING_GUIDE.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - Makefile
+  - LICENSE
+  - vendor
+  - .git
+  - .sass-cache
+  - .jekyll-cache
+  - .jekyll-metadata
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:categories/:title/
+
+# Pagination configuration for jekyll-paginate-v2
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: '/page/:num/'
+  title: ':title - Page :num'
+  limit: 0
+  trail:
+    before: 2
+    after: 2
+  sort_field: 'date'
+  sort_reverse: true
+
+plugins:
+ - jekyll-feed
+ - jekyll-seo-tag
+ - jekyll-pdf-embed
+ - jekyll-paginate-v2
+
+future: true
+
+# GitHub repository configuration (update with your repo)
+repository: yourorg/yourrepo

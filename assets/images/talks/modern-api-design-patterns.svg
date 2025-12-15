@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0C4A6E;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#075985;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0E7490;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:0.25" />
+      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:0" />
+    </radialGradient>
+    <filter id="glow2-filter">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#gradient2)"/>
+  <rect width="800" height="600" fill="url(#glow2)"/>
+
+  <!-- Circuit board pattern -->
+  <g opacity="0.08">
+    <defs>
+      <pattern id="circuit" width="60" height="60" patternUnits="userSpaceOnUse">
+        <path d="M 0 30 L 30 30 L 30 0 M 30 30 L 60 30 M 30 30 L 30 60" fill="none" stroke="#22D3EE" stroke-width="1.5"/>
+      </pattern>
+    </defs>
+    <rect width="800" height="600" fill="url(#circuit)"/>
+  </g>
+
+  <!-- Central Icon: Modern API Architecture -->
+  <g transform="translate(400, 200)" filter="url(#glow2-filter)">
+    <!-- Left bracket with glow -->
+    <path d="M -100 -40 L -120 -40 L -120 40 L -100 40" stroke="#22D3EE" stroke-width="5" fill="none" opacity="0.9"/>
+    <path d="M -100 -40 L -120 -40 L -120 40 L -100 40" stroke="#06B6D4" stroke-width="3" fill="none" opacity="0.6"/>
+    
+    <!-- API endpoints with modern design -->
+    <rect x="-60" y="-25" width="120" height="18" fill="#0891B2" opacity="0.8" rx="3"/>
+    <rect x="-60" y="-25" width="120" height="18" fill="#22D3EE" opacity="0.3" rx="3"/>
+    <line x1="-50" y1="-16" x2="50" y2="-16" stroke="#67E8F9" stroke-width="1.5" opacity="0.6"/>
+    
+    <rect x="-60" y="0" width="120" height="18" fill="#0891B2" opacity="0.8" rx="3"/>
+    <rect x="-60" y="0" width="120" height="18" fill="#22D3EE" opacity="0.3" rx="3"/>
+    <line x1="-50" y1="9" x2="50" y2="9" stroke="#67E8F9" stroke-width="1.5" opacity="0.6"/>
+    
+    <rect x="-60" y="25" width="120" height="18" fill="#0891B2" opacity="0.8" rx="3"/>
+    <rect x="-60" y="25" width="120" height="18" fill="#22D3EE" opacity="0.3" rx="3"/>
+    <line x1="-50" y1="34" x2="50" y2="34" stroke="#67E8F9" stroke-width="1.5" opacity="0.6"/>
+    
+    <!-- Right bracket with glow -->
+    <path d="M 100 -40 L 120 -40 L 120 40 L 100 40" stroke="#22D3EE" stroke-width="5" fill="none" opacity="0.9"/>
+    <path d="M 100 -40 L 120 -40 L 120 40 L 100 40" stroke="#06B6D4" stroke-width="3" fill="none" opacity="0.6"/>
+    
+    <!-- Arrow with gradient effect -->
+    <path d="M 70 0 L 90 0" stroke="#22D3EE" stroke-width="4" fill="none" opacity="0.9"/>
+    <path d="M 85 -8 L 90 0 L 85 8" stroke="#22D3EE" stroke-width="4" fill="none" opacity="0.9"/>
+    <circle cx="70" cy="0" r="3" fill="#67E8F9" opacity="0.8"/>
+  </g>
+
+  <!-- Title with shadow effect -->
+  <text x="400" y="360" font-family="Arial, sans-serif" font-size="42" font-weight="bold"
+        fill="#083344" text-anchor="middle" letter-spacing="1">Modern API Design Patterns</text>
+  <text x="400" y="360" font-family="Arial, sans-serif" font-size="42" font-weight="bold"
+        fill="#E0F2FE" text-anchor="middle" letter-spacing="1" opacity="0.95">Modern API Design Patterns</text>
+
+  <!-- Subtitle -->
+  <text x="400" y="400" font-family="Arial, sans-serif" font-size="22"
+        fill="rgba(103,232,249,0.85)" text-anchor="middle" letter-spacing="0.5">Developer Meetup</text>
+</svg>
