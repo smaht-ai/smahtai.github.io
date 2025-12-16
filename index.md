@@ -49,6 +49,11 @@ title: "Smaht.ai - Experienced AI Engineers & Entrepreneurs"
       <div class="grid gap-6 md:grid-cols-3">
         <!-- Sean -->
         <article class="border border-gray-100 rounded-lg p-5 bg-gray-50">
+          <div class="mb-4 rounded-lg overflow-hidden bg-gray-100">
+            <img src="{{ '/assets/images/sean_smaht.png' | relative_url }}"
+                 alt="Sean Kruzel"
+                 class="w-full h-56 object-cover">
+          </div>
           <h3 class="text-lg font-semibold text-gray-900 mb-1">Sean Kruzel</h3>
           <p class="text-sm text-blue-700 font-medium mb-2">
             AI Engineer · Founder · Global Macro Hedge Fund Quant · Full Stack Developer
@@ -63,6 +68,11 @@ title: "Smaht.ai - Experienced AI Engineers & Entrepreneurs"
 
         <!-- Andrei -->
         <article class="border border-gray-100 rounded-lg p-5 bg-gray-50">
+          <div class="mb-4 rounded-lg overflow-hidden bg-gray-100">
+            <img src="{{ '/assets/images/andrei_smaht.png' | relative_url }}"
+                 alt="Andrei Radulescu-Banu"
+                 class="w-full h-56 object-cover">
+          </div>
           <h3 class="text-lg font-semibold text-gray-900 mb-1">Andrei Radulescu-Banu</h3>
           <p class="text-sm text-blue-700 font-medium mb-2">
             Innovative Digital Health, Fintech, Robotics Solutions · Math PhD, MIT
@@ -77,6 +87,11 @@ title: "Smaht.ai - Experienced AI Engineers & Entrepreneurs"
 
         <!-- Vishnu -->
         <article class="border border-gray-100 rounded-lg p-5 bg-gray-50">
+          <div class="mb-4 rounded-lg overflow-hidden bg-gray-100">
+            <img src="{{ '/assets/images/vishnu_smaht.png' | relative_url }}"
+                 alt="Vishnu Patel"
+                 class="w-full h-56 object-cover">
+          </div>
           <h3 class="text-lg font-semibold text-gray-900 mb-1">Vishnu Patel</h3>
           <p class="text-sm text-blue-700 font-medium mb-2">
             Quantitative Finance Developer · BU Questrom MS
