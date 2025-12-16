@@ -6,9 +6,9 @@ title: "Smaht.ai - Experienced AI Engineers & Entrepreneurs"
 <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-16">
   <!-- Hero Section - Two Column Layout -->
   <header class="mb-12 md:mb-16">
-    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-stretch">
       <!-- Left Column - Text Content -->
-      <div class="space-y-6">
+      <div class="space-y-6 flex flex-col">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
           Experienced AI Engineers &amp; Entrepreneurs
         </h1>
@@ -29,10 +29,10 @@ title: "Smaht.ai - Experienced AI Engineers & Entrepreneurs"
       </div>
       
       <!-- Right Column - Image -->
-      <div class="flex justify-center md:justify-end">
+      <div class="h-full w-full overflow-hidden">
         <img src="{{ '/assets/images/smaht-skyline2.png' | relative_url }}" 
              alt="Smaht.ai Cityscape" 
-             class="w-full max-w-lg h-auto object-contain">
+             style="width: 100%; height: 100%; object-fit: fill;">
       </div>
     </div>
   </header>
