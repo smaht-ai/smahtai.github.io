@@ -1,10 +1,9 @@
-title: Your Company Name
+title: Smaht.ai
 author:
-  name: Your Name
-  email: "hello@yourcompany.com"
+  name: Smaht.ai
+  email: "hello@smaht.ai"
 description: > # this means to ignore newlines until "show_excerpts:"
-  Your company provides innovative solutions and expert guidance
-  for growing businesses.
+  Smaht.ai is a community of experienced AI engineers and entrepreneurs who are passionate about building products and building companies.
 
 show_excerpts: false # set to true to show excerpts on the homepage
 permalink: pretty
