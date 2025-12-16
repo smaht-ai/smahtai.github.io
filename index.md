@@ -3,30 +3,37 @@ layout: default
 title: "Smaht.ai - Experienced AI Engineers & Entrepreneurs"
 ---
 
-<div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-16">
-  <!-- Hero Section -->
-  <header class="text-center mb-12 md:mb-16">
-    <p class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wide uppercase rounded-full bg-blue-50 text-blue-700">
-      Boston-founded · Global Community
-    </p>
-    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
-      Experienced AI Engineers &amp; Entrepreneurs
-    </h1>
-    <p class="text-lg md:text-2xl text-gray-700 max-w-3xl mx-auto mb-4">
-      A Boston-founded but global group of people who love building products and building companies.
-    </p>
-    <p class="text-base md:text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-      For AI engineers and entrepreneurs who like taking ideas from 0 to 1 using cutting-edge tools and strategies to unlock value for people.
-      No cost to join. This is an exclusive community for highly efficient builders and operators, skilled in Generative AI, Data Engineering,
-      Machine Learning, and Entrepreneurship.
-    </p>
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="/contact/" class="inline-flex items-center justify-center px-8 py-3 rounded-lg text-white font-semibold text-base md:text-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all duration-200">
-        Talk with our members
-      </a>
-      <p class="text-sm text-gray-500">
-        If your company needs fractional AI engineers or strategic Generative AI help, set aside 30 minutes to talk with our members.
-      </p>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-16">
+  <!-- Hero Section - Two Column Layout -->
+  <header class="mb-12 md:mb-16">
+    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+      <!-- Left Column - Text Content -->
+      <div class="space-y-6">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+          Experienced AI Engineers &amp; Entrepreneurs
+        </h1>
+        <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+          A Boston-founded but global group of people who love building products and building companies.
+        </p>
+        <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+          For AI Engineers and Entrepreneurs who like taking ideas from 0 to 1 using cutting-edge tools and strategies to unlock value for people.
+        </p>
+        <div class="pt-2">
+          <a href="/contact/" class="inline-block bg-gray-800 hover:bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold text-base md:text-lg transition-colors duration-200">
+            Think you're Smaht? Apply to be a member
+          </a>
+        </div>
+        <p class="text-base md:text-lg text-gray-700 leading-relaxed pt-2">
+          No cost to join. This is an exclusive community for highly efficient builders and operators, skilled in Generative AI, Data Engineering, Machine Learning and Entrepreneurship
+        </p>
+      </div>
+      
+      <!-- Right Column - Image -->
+      <div class="flex justify-center md:justify-end">
+        <img src="{{ '/assets/images/smaht-skyline2.png' | relative_url }}" 
+             alt="Smaht.ai Cityscape" 
+             class="w-full max-w-lg h-auto object-contain">
+      </div>
     </div>
   </header>
 
