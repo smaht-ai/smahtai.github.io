@@ -19,7 +19,7 @@ title: "Smaht.ai - Experienced AI Engineers & Entrepreneurs"
           For AI Engineers and Entrepreneurs who like taking ideas from 0 to 1 using cutting-edge tools and strategies to unlock value for people.
         </p>
         <div class="pt-2">
-          <a href="/contact/" class="inline-block bg-gray-800 hover:bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold text-base md:text-lg transition-colors duration-200">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeWEKRhzM3_EvMi9Q-d8oF037vaWngHvg6iT0ZuIcxlQtlWnA/viewform" class="inline-block bg-gray-800 hover:bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold text-base md:text-lg transition-colors duration-200">
             Think you're Smaht? Apply to be a member
           </a>
         </div>
