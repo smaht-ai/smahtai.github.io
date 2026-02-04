@@ -8,6 +8,7 @@ description: > # this means to ignore newlines until "show_excerpts:"
 show_excerpts: false # set to true to show excerpts on the homepage
 permalink: pretty
 baseurl: ""
+url: "https://smaht.ai"
 
 # Calendly integration (optional - remove if not using)
 # calendly_url: "https://calendly.com/yourcompany"
@@ -25,7 +26,7 @@ minima:
   # generate social links in footer
   social_links:
     twitter: yourcompany
-    github:  yourcompany
+    github: yourcompany
     # devto: jekyll
     # dribbble: jekyll
     # facebook: jekyll
@@ -158,22 +159,22 @@ collections:
 pagination:
   enabled: true
   per_page: 5
-  permalink: '/page/:num/'
-  title: ':title - Page :num'
+  permalink: "/page/:num/"
+  title: ":title - Page :num"
   limit: 0
   trail:
     before: 2
     after: 2
-  sort_field: 'date'
+  sort_field: "date"
   sort_reverse: true
 
 plugins:
- - jekyll-feed
- - jekyll-seo-tag
- - jekyll-pdf-embed
- - jekyll-paginate-v2
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-pdf-embed
+  - jekyll-paginate-v2
 
 future: true
 
 # GitHub repository configuration (update with your repo)
-repository: yourorg/yourrepo
+repository: smaht-ai/smahtai.github.io
