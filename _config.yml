@@ -26,7 +26,7 @@ minima:
   # generate social links in footer
   social_links:
     twitter: yourcompany
-    github: yourcompany
+    github: smaht-ai/smahtai.github.io
     # devto: jekyll
     # dribbble: jekyll
     # facebook: jekyll
