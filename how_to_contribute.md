@@ -16,13 +16,13 @@ permalink: /how-to-contribute/
     </p>
     <pre class="bg-gray-100 rounded-lg p-4 text-sm overflow-x-auto mb-3"><code>git clone https://github.com/smaht-ai/smahtai.github.io.git
 cd smahtai.github.io</code></pre>
-    <p class="text-gray-700">
-      Install dependencies so you can build and preview the site locally:
+    <p class="text-gray-700 mb-3">
+      Install <strong>GNU make</strong> if you don’t have it (e.g. <code class="bg-gray-100 px-1 rounded">apt install make</code> on Debian/Ubuntu, <code class="bg-gray-100 px-1 rounded">brew install make</code> on macOS). Then install dependencies and start the local preview server using the project’s Makefile:
     </p>
-    <pre class="bg-gray-100 rounded-lg p-4 text-sm overflow-x-auto mt-3"><code>bundle install
-bundle exec jekyll serve</code></pre>
+    <pre class="bg-gray-100 rounded-lg p-4 text-sm overflow-x-auto mt-3"><code>make install
+make serve</code></pre>
     <p class="text-gray-700 mt-3">
-      Open <code class="bg-gray-100 px-1 rounded">http://localhost:4000</code> in your browser to preview your changes.
+      Open <code class="bg-gray-100 px-1 rounded">http://localhost:4000</code> in your browser to preview your changes. Use <code class="bg-gray-100 px-1 rounded">make build</code> for a one-off build, or <code class="bg-gray-100 px-1 rounded">make clean</code> to clear the Jekyll output.
     </p>
   </section>
 
@@ -82,8 +82,8 @@ git push origin your-branch-name</code></pre>
     </p>
     <ul class="list-disc pl-6 text-gray-700 space-y-1 mb-3">
       <li><strong>Theme repository:</strong> <a href="https://github.com/analytiq-hub/analytiq-pages-theme" class="text-blue-600 hover:text-blue-800 underline">github.com/analytiq-hub/analytiq-pages-theme</a></li>
-      <li>The exact version is pinned in this site’s <code class="bg-gray-100 px-1 rounded">Gemfile</code> (e.g. by git tag). When you run <code class="bg-gray-100 px-1 rounded">bundle install</code>, Bundler fetches the theme from that repository.</li>
-      <li>To change the theme version (e.g. to use a newer release), update the <code class="bg-gray-100 px-1 rounded">gem "analytiq-pages-theme"</code> line in <code class="bg-gray-100 px-1 rounded">Gemfile</code> and run <code class="bg-gray-100 px-1 rounded">bundle install</code> again.</li>
+      <li>The exact version is pinned in this site’s <code class="bg-gray-100 px-1 rounded">Gemfile</code> (e.g. by git tag). When you run <code class="bg-gray-100 px-1 rounded">make install</code>, the Makefile installs dependencies and fetches the theme from that repository.</li>
+      <li>To change the theme version (e.g. to use a newer release), update the <code class="bg-gray-100 px-1 rounded">gem "analytiq-pages-theme"</code> line in <code class="bg-gray-100 px-1 rounded">Gemfile</code> and run <code class="bg-gray-100 px-1 rounded">make install</code> again.</li>
     </ul>
     <p class="text-gray-700">
       Content and site-specific overrides (e.g. <code class="bg-gray-100 px-1 rounded">_config.yml</code>, <code class="bg-gray-100 px-1 rounded">_includes/</code>, and your pages and posts) live in this repository; the theme provides the base look and behavior.
