@@ -83,6 +83,8 @@ header_pages:
         url: "/about"
       - title: "Contact"
         url: "/contact"
+      - title: "How to Contribute"
+        url: "/how-to-contribute"
   - title: "Get Started"
     url: "/contact"
     button_style: "solid"
@@ -111,6 +113,8 @@ site_map:
         url: "/about"
       - title: "Contact"
         url: "/contact"
+      - title: "How to Contribute"
+        url: "/how-to-contribute"
 
 # Build settings
 theme: analytiq-pages-theme
