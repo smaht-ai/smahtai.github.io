@@ -5,7 +5,6 @@ permalink: /how-to-contribute/
 ---
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-12">
-  <h1 class="text-4xl font-bold text-gray-900 mb-6">How to Contribute</h1>
   <p class="text-lg text-gray-700 mb-8">
     This site is open for contributions. You can propose a new blog post, fix a typo, or add a page. Here’s how.
   </p>
