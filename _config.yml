@@ -58,33 +58,24 @@ minima:
 
 # Header navigation menu
 header_pages:
-  - title: "Products"
-    url: "#"
-    children:
-      - title: "Overview"
-        url: "/products"
-      - title: "Features"
-        url: "/features"
-  - title: "Docs"
-    url: "#"
-    children:
-      - title: "Getting Started"
-        url: "/docs/getting-started"
-      - title: "User Guide"
-        url: "/docs/user-guide"
-      - title: "API Reference"
-        url: "/docs/api-reference"
-      - title: "Architecture"
-        url: "/docs/architecture"
   - title: "Resources"
     url: "#"
     children:
-      - title: "Blog"
-        url: "/blog"
-      - title: "Talks"
-        url: "/talks"
-      - title: "Case Studies"
-        url: "/case-studies"
+      - title: "Technology"
+        url: "/technology"
+  # - title: "Docs"
+  #   url: "#"
+  #   children:
+  #     - title: "Getting Started"
+  #       url: "/docs/getting-started"
+  #     - title: "User Guide"
+  #       url: "/docs/user-guide"
+  #     - title: "API Reference"
+  #       url: "/docs/api-reference"
+  #     - title: "Architecture"
+  #       url: "/docs/architecture"
+  - title: "Blog"
+    url: "/blog"
   - title: "Company"
     url: "#"
     children:
@@ -98,30 +89,22 @@ header_pages:
 
 # Footer sitemap - simplified navigation for footer display
 site_map:
-  - title: "Products"
-    links:
-      - title: "Overview"
-        url: "/products"
-      - title: "Features"
-        url: "/features"
-  - title: "Documentation"
-    links:
-      - title: "Getting Started"
-        url: "/docs/getting-started"
-      - title: "User Guide"
-        url: "/docs/user-guide"
-      - title: "API Reference"
-        url: "/docs/api-reference"
-      - title: "Architecture"
-        url: "/docs/architecture"
   - title: "Resources"
     links:
-      - title: "Blog"
-        url: "/blog"
-      - title: "Talks"
-        url: "/talks"
-      - title: "Case Studies"
-        url: "/case-studies"
+      - title: "Technology"
+        url: "/technology"
+  # - title: "Documentation"
+  #   links:
+  #     - title: "Getting Started"
+  #       url: "/docs/getting-started"
+  #     - title: "User Guide"
+  #       url: "/docs/user-guide"
+  #     - title: "API Reference"
+  #       url: "/docs/api-reference"
+  #     - title: "Architecture"
+  #       url: "/docs/architecture"
+  - title: "Blog"
+    url: "/blog"
   - title: "Company"
     links:
       - title: "About"
