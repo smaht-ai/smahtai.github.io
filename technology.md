@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Technology - Analytiq Hub"
+title: "Technology - Smaht AI"
 permalink: /technology/
 ---
 <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-4 md:py-12">
@@ -453,7 +453,7 @@ permalink: /technology/
         <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg p-8 text-center">
             <h2 class="text-3xl font-bold mb-4">Ready to Write Your Technology Story?</h2>
             <p class="text-lg mb-8 max-w-2xl mx-auto">
-                Partner with Analytiq Hub's experts to automate what slows you down. From document workflows to AI integrations, we'll tailor our stack to your needs.
+                Partner with Smaht AI's experts to automate what slows you down. From document workflows to AI integrations, we'll tailor our stack to your needs.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/contact/" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold border-2 border-white hover:bg-white hover:bg-opacity-10 transition-all duration-200">Schedule a Demo</a>
