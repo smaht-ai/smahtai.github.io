@@ -76,7 +76,7 @@ header_pages:
   #       url: "/docs/architecture"
   - title: "Blog"
     url: "/blog"
-  - title: "Company"
+  - title: "Info"
     url: "#"
     children:
       - title: "About"
@@ -105,7 +105,7 @@ site_map:
   #       url: "/docs/architecture"
   - title: "Blog"
     url: "/blog"
-  - title: "Company"
+  - title: "Info"
     links:
       - title: "About"
         url: "/about"
