@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 # Analytiq Pages Theme
-gem "analytiq-pages-theme", git: "https://github.com/analytiq-hub/analytiq-pages-theme.git", tag: "v0.1.10"
+gem "analytiq-pages-theme", git: "https://github.com/analytiq-hub/analytiq-pages-theme.git", tag: "v1.0.0"
 #gem "analytiq-pages-theme", path: "/home/andrei/build/analytiq/analytiq-pages-theme"
 
 
