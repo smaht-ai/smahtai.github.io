@@ -90,6 +90,22 @@ git push origin your-branch-name</code></pre>
     </p>
   </section>
 
+  <section class="mb-10">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">Additional Details</h2>
+
+    <p class="text-gray-700 font-medium mb-1">Add images</p>
+    <p class="text-gray-700 mb-4">Put image files under <code class="bg-gray-100 px-1 rounded">assets/images/</code> (e.g. <code class="bg-gray-100 px-1 rounded">assets/images/blog/</code> for post splashes). Reference them in Markdown or HTML as <code class="bg-gray-100 px-1 rounded">/assets/images/yourfile.png</code> or with <code class="bg-gray-100 px-1 rounded">{{ '/assets/images/yourfile.png' | relative_url }}</code> in Liquid.</p>
+
+    <p class="text-gray-700 font-medium mb-1">Create SVG files</p>
+    <p class="text-gray-700 mb-4">Add <code class="bg-gray-100 px-1 rounded">.svg</code> files in <code class="bg-gray-100 px-1 rounded">assets/images/</code> (or <code class="bg-gray-100 px-1 rounded">assets/images/blog/</code> for post graphics). Use a <code class="bg-gray-100 px-1 rounded">viewBox</code>, keep paths minimal, and optionally add <code class="bg-gray-100 px-1 rounded">&lt;title&gt;</code> / <code class="bg-gray-100 px-1 rounded">&lt;desc&gt;</code> for accessibility. See <code class="bg-gray-100 px-1 rounded">SVG_STYLING_GUIDE.md</code> in the repo for patterns.</p>
+
+    <p class="text-gray-700 font-medium mb-1">Create Excalidraw diagrams</p>
+    <p class="text-gray-700 mb-4">Save <code class="bg-gray-100 px-1 rounded">.excalidraw</code> JSON files in <code class="bg-gray-100 px-1 rounded">assets/excalidraw/</code>. Embed in content with the theme’s <code class="bg-gray-100 px-1 rounded">excalidraw-static.html</code> include (see existing posts for examples). Use <code class="bg-gray-100 px-1 rounded">/excalidraw-edit</code> to create or edit diagrams in the browser.</p>
+
+    <p class="text-gray-700 font-medium mb-1">Vibe-code content with AI editors</p>
+    <p class="text-gray-700 mb-4">You can use <strong>Cursor</strong>, <strong>Claude Code</strong>, <strong>Windsurf</strong>, or <strong>GitHub Copilot</strong> to draft or edit posts and pages. Open the repo in the editor, point the AI at <code class="bg-gray-100 px-1 rounded">AGENTS.md</code> (and this page) for conventions, then ask it to add a post, a page, or assets—then review, run <code class="bg-gray-100 px-1 rounded">make serve</code>, and open a PR.</p>
+  </section>
+
   <p class="text-gray-600 mt-8">
     Questions? <a href="/contact/" class="text-blue-600 hover:text-blue-800 underline">Contact us</a> or open an issue on the <a href="https://github.com/smaht-ai/smahtai.github.io" class="text-blue-600 hover:text-blue-800 underline">repository</a>.
   </p>
