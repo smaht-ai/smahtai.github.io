@@ -47,7 +47,22 @@ permalink: /contact/
           </span>
           <span class="block">
             <span class="block font-medium mb-1">Social</span>
-            <span class="text-blue-100">DM founder Sean Kruzel on <a href="https://www.linkedin.com/in/seankruzel" target="_blank" rel="noopener noreferrer" class="underline hover:text-white">LinkedIn</a> or <a href="https://twitter.com/seankruzel" target="_blank" rel="noopener noreferrer" class="underline hover:text-white">Twitter (X)</a>.</span>
+            <span class="text-blue-100 flex items-center gap-2 flex-wrap">
+              <span>DM founder Sean Kruzel on</span>
+              <a href="https://www.linkedin.com/in/seankruzel" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-blue-100 hover:text-white" aria-label="LinkedIn">
+                <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <use href="{{ '/assets/minima-social-icons.svg' | relative_url }}#linkedin"/>
+                </svg>
+                <span class="underline">LinkedIn</span>
+              </a>
+              <span>or</span>
+              <a href="https://twitter.com/seankruzel" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-blue-100 hover:text-white" aria-label="Twitter (X)">
+                <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <use href="{{ '/assets/minima-social-icons.svg' | relative_url }}#twitter"/>
+                </svg>
+                <span class="underline">Twitter (X)</span>
+              </a>
+            </span>
           </span>
         </span>
       </span>
