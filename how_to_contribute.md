@@ -7,7 +7,6 @@ permalink: /how-to-contribute/
 <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-12 space-y-8">
   <!-- Intro -->
   <header class="rounded-xl bg-gradient-to-br from-gray-50 to-blue-50 border border-gray-100 p-6 md:p-8">
-    <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">How to Contribute</h1>
     <p class="text-lg text-gray-700 leading-relaxed">
       This site is open for contributions. Propose a blog post, fix a typo, or add a page—here’s how.
     </p>
