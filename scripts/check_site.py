@@ -20,6 +20,14 @@ GENERATED_PATHS = {
     "/feed.xml",
     "/assets/js/excalidraw/render-excalidraw.js",
 }
+PLACEHOLDER_RE = re.compile(
+    r"\b(yourusername|yourrepo|yourcompany|analytiq-pages-starter)\b",
+    re.IGNORECASE,
+)
+PLACEHOLDER_CHECK_FILES = {
+    ROOT / "README.md",
+    ROOT / "_config.yml",
+}
 
 
 def content_files() -> list[Path]:
@@ -102,6 +110,11 @@ def main() -> int:
     files = content_files()
     pages = generated_paths(files)
     failures: list[str] = []
+
+    for path in sorted(PLACEHOLDER_CHECK_FILES):
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        if PLACEHOLDER_RE.search(text):
+            failures.append(f"{path.relative_to(ROOT)}: starter placeholder remains")
 
     for path in files:
         text = path.read_text(encoding="utf-8", errors="ignore")

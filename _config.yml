@@ -10,9 +10,6 @@ permalink: pretty
 baseurl: ""
 url: "https://smaht.ai"
 
-# Calendly integration (optional - remove if not using)
-# calendly_url: "https://calendly.com/yourcompany"
-
 # Minima date format
 # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
 minima:
@@ -25,14 +22,12 @@ minima:
 
   # generate social links in footer
   social_links:
-    twitter: yourcompany
     github: smaht-ai/smahtai.github.io
     # devto: jekyll
     # dribbble: jekyll
     # facebook: jekyll
     # flickr:   jekyll
     # instagram: jekyll
-    linkedin: yourcompany
     # pinterest: jekyll
     # youtube: jekyll
     # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g

@@ -1,55 +1,39 @@
-# Company Website Starter
+# Smaht.ai Website
 
-A professional Jekyll-based starter website using the [analytiq-pages-theme](https://github.com/analytiq-hub/analytiq-pages-theme). Perfect for company websites, product pages, and documentation sites.
+Static Jekyll site for [smaht.ai](https://smaht.ai), the public home for the
+Smaht.ai AI engineering and entrepreneurship community.
 
-**👉 [View Live Demo](https://analytiqhub.com/analytiq-pages-starter/)**
+The site is built with the `analytiq-pages-theme` theme and published through
+GitHub Pages from this repository.
 
-**📖 [Theme Documentation](https://github.com/analytiq-hub/analytiq-pages-theme/blob/main/README.md)**
+## Local Checks
 
-## Quick Start
+Ruby and Bundler are optional for the lightweight content audit:
 
-Creating a company website requires only two steps:
+```sh
+make check
+```
 
-1. **Click "Use this template"** to fork the repository along with its built-in GitHub Action workflow
-2. **Enable GitHub Pages** in Settings → Pages, and re-run the Action pipeline to build the site
+The checker validates local links, front matter image references, generated
+Jekyll paths that the source content expects, and obvious starter-template
+placeholder drift in repository-level site metadata.
 
-That's it! Your site will be live at `https://yourusername.github.io/repo-name/` once the workflow completes.
+When Ruby dependencies are available, run the full Jekyll build:
 
-## Features
+```sh
+make install
+make build
+```
 
-- **Modern Design**: Built with Tailwind CSS for a clean, professional look
-- **Complete Navigation**: Multi-level dropdown menus and footer sitemap
-- **Blog**: Ready-to-use blog with pagination and sample posts
-- **Documentation**: Comprehensive docs section with getting started, user guide, and API reference
-- **Case Studies**: Showcase your success stories
-- **Product Pages**: Highlight your products and features
-- **Contact Form**: Pre-configured contact page (requires form service setup)
-- **Responsive**: Mobile-first design that looks great on all devices
-- **SEO Optimized**: Built-in SEO tags and sitemap
-- **Fast**: Optimized for performance
+## Editing
 
-## Documentation
+- Primary pages live at the repository root, such as `index.md`, `about.md`,
+  `technology.md`, and `contact.md`.
+- Blog posts live in `_posts/`.
+- Site configuration, navigation, social links, and GitHub Pages metadata live
+  in `_config.yml`.
+- Images live under `assets/images/`.
+- Excalidraw source diagrams live under `assets/excalidraw/`; rendered assets
+  are checked in under `assets/images/` when used by pages or posts.
 
-For detailed information on customization, deployment, and advanced features, see the [Documentation](/docs/getting-started/):
-
-- [Getting Started](/docs/getting-started/) - Complete setup guide
-- [User Guide](/docs/user-guide/) - Customization and content management
-- [Architecture](/docs/architecture/) - Technical details and structure
-- [API Reference](/docs/api-reference/) - Configuration reference
-
-## License
-
-This starter template is open source and available under the MIT License.
-
-## Support
-
-- [Jekyll Documentation](https://jekyllrb.com/docs/)
-- [Theme Documentation](https://github.com/analytiq-hub/analytiq-pages-theme/blob/main/README.md)
-- [GitHub Issues](https://github.com/yourusername/yourrepo/issues)
-
-## Credits
-
-Built with:
-- [Jekyll](https://jekyllrb.com/)
-- [analytiq-pages-theme](https://github.com/analytiq-hub/analytiq-pages-theme)
-- [Tailwind CSS](https://tailwindcss.com/)
+Do not leave starter-template placeholder values in live site metadata.
