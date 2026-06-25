@@ -26,6 +26,7 @@ FENCED_BLOCK_RE = re.compile(r"```.*?```", re.DOTALL)
 INLINE_CODE_RE = re.compile(r"`[^`]*`")
 POST_URL_RE = re.compile(r"{%\s*post_url\s+([^%\s]+)\s*%}")
 POST_FILENAME_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})-.+\.md$")
+WHITESPACE_RE = re.compile(r"\s")
 GENERATED_PATHS = {
     "/feed.xml",
     "/assets/js/excalidraw/render-excalidraw.js",
@@ -177,6 +178,22 @@ def is_valid_date_prefix(value: str) -> bool:
     return True
 
 
+def permalink_error(value: Any) -> str | None:
+    if value is None:
+        return None
+    if not isinstance(value, str):
+        return "must be a string"
+    if value != value.strip():
+        return "must not include leading or trailing whitespace"
+    if not value:
+        return "must not be empty"
+    if WHITESPACE_RE.search(value):
+        return "must not include whitespace"
+    if not value.startswith("/"):
+        return "must start with /"
+    return None
+
+
 def main() -> int:
     files = content_files()
     pages = generated_paths(files)
@@ -257,6 +274,8 @@ def main() -> int:
             failures.append(f"{relative}: missing front matter layout")
         elif layout and layout not in ALLOWED_LAYOUTS:
             failures.append(f"{relative}: unknown front matter layout {layout}")
+        if error := permalink_error(front_matter.get("permalink")):
+            failures.append(f"{relative}: front matter permalink {error}")
         if "_posts" in relative.parts:
             filename_match = POST_FILENAME_RE.match(path.name)
             front_matter_date = front_matter_string(front_matter.get("date"))
