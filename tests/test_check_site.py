@@ -1,0 +1,44 @@
+from __future__ import annotations
+
+import importlib.util
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+CHECKER_PATH = ROOT / "scripts" / "check_site.py"
+
+
+spec = importlib.util.spec_from_file_location("check_site", CHECKER_PATH)
+assert spec is not None
+check_site = importlib.util.module_from_spec(spec)
+assert spec.loader is not None
+spec.loader.exec_module(check_site)
+
+
+def test_local_paths_reject_parent_directory_escapes(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    site_root = tmp_path / "site"
+    site_root.mkdir()
+    outside = tmp_path / "outside.md"
+    outside.write_text("outside\n", encoding="utf-8")
+    monkeypatch.setattr(check_site, "ROOT", site_root)
+
+    assert not check_site.check_local_link("../outside.md", set())
+    assert not check_site.check_local_link("/../outside.md", set())
+    assert not check_site.check_local_file("../outside.md")
+
+
+def test_local_paths_accept_files_inside_site_root(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    site_root = tmp_path / "site"
+    asset = site_root / "assets" / "image.png"
+    asset.parent.mkdir(parents=True)
+    asset.write_bytes(b"png")
+    monkeypatch.setattr(check_site, "ROOT", site_root)
+
+    assert check_site.check_local_link("/assets/image.png", set())
+    assert check_site.check_local_file("assets/image.png")

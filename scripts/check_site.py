@@ -137,15 +137,16 @@ def check_local_link(link: str, pages: set[str]) -> bool:
     clean = link.split("#", 1)[0].split("?", 1)[0]
     if not clean:
         return True
+    candidate = local_repo_path(clean)
+    if candidate is None:
+        return False
     if clean.startswith("/"):
         if clean in GENERATED_PATHS:
             return True
-        candidate = ROOT / clean.lstrip("/")
         if candidate.exists():
             return True
         normalized = clean.rstrip("/") or "/"
         return normalized in pages or f"{normalized}/" in pages
-    candidate = ROOT / clean
     return candidate.exists()
 
 
@@ -153,8 +154,20 @@ def check_local_file(link: str) -> bool:
     clean = link.split("#", 1)[0].split("?", 1)[0]
     if not clean:
         return False
-    candidate = ROOT / clean.lstrip("/") if clean.startswith("/") else ROOT / clean
+    candidate = local_repo_path(clean)
+    if candidate is None:
+        return False
     return candidate.is_file()
+
+
+def local_repo_path(clean_link: str) -> Path | None:
+    path_text = clean_link.lstrip("/") if clean_link.startswith("/") else clean_link
+    candidate = ROOT / path_text
+    try:
+        candidate.resolve().relative_to(ROOT.resolve())
+    except ValueError:
+        return None
+    return candidate
 
 
 def collect_nav_links(items: object) -> list[str]:
