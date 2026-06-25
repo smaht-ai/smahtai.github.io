@@ -222,6 +222,9 @@ def main() -> int:
 
         for match in URL_RE.finditer(text_without_examples):
             link = next(group for group in match.groups() if group)
+            if link == "#" and path.parent == ROOT:
+                failures.append(f"{path.relative_to(ROOT)}: live page placeholder link remains")
+                continue
             if error := external_url_error(link):
                 failures.append(
                     f"{path.relative_to(ROOT)}: external URL {link} {error}"

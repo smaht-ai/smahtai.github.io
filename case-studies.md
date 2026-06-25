@@ -72,7 +72,7 @@ title: Case Studies
               <span class="text-gray-700">Zero downtime during migration</span>
             </li>
           </ul>
-          <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read full case study →</a>
+          <a href="/contact/" class="text-blue-600 hover:text-blue-800 font-medium">Discuss a similar project →</a>
         </div>
       </div>
     </div>
@@ -133,7 +133,7 @@ title: Case Studies
               <span class="text-gray-700">Full HIPAA compliance maintained</span>
             </li>
           </ul>
-          <a href="#" class="text-purple-600 hover:text-purple-800 font-medium">Read full case study →</a>
+          <a href="/contact/" class="text-purple-600 hover:text-purple-800 font-medium">Discuss a similar project →</a>
         </div>
       </div>
     </div>
@@ -194,7 +194,7 @@ title: Case Studies
               <span class="text-gray-700">Improved conversion rate by 28%</span>
             </li>
           </ul>
-          <a href="#" class="text-green-600 hover:text-green-800 font-medium">Read full case study →</a>
+          <a href="/contact/" class="text-green-600 hover:text-green-800 font-medium">Discuss a similar project →</a>
         </div>
       </div>
     </div>
