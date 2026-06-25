@@ -17,6 +17,7 @@ FRONT_MATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 FENCED_BLOCK_RE = re.compile(r"```.*?```", re.DOTALL)
 INLINE_CODE_RE = re.compile(r"`[^`]*`")
 POST_URL_RE = re.compile(r"{%\s*post_url\s+([^%\s]+)\s*%}")
+POST_FILENAME_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})-.+\.md$")
 GENERATED_PATHS = {
     "/feed.xml",
     "/assets/js/excalidraw/render-excalidraw.js",
@@ -133,6 +134,16 @@ def main() -> int:
                 failures.append(f"{path.relative_to(ROOT)}: missing local link {link}")
 
         front_matter = parse_front_matter(path)
+        relative = path.relative_to(ROOT)
+        if "_posts" in relative.parts:
+            filename_match = POST_FILENAME_RE.match(path.name)
+            front_matter_date = front_matter.get("date", "")
+            if not filename_match:
+                failures.append(f"{relative}: post filename must start with YYYY-MM-DD")
+            elif not front_matter_date.startswith(filename_match.group(1)):
+                failures.append(
+                    f"{relative}: filename date does not match front matter date"
+                )
         image = front_matter.get("image")
         if image and not is_external_or_template(image) and not check_local_link(image, pages):
             failures.append(f"{path.relative_to(ROOT)}: missing front matter image {image}")
