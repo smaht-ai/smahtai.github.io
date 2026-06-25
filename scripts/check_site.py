@@ -16,6 +16,7 @@ URL_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)|(?:src|href)=[\"']([^\"']+)[\"']")
 FRONT_MATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 FENCED_BLOCK_RE = re.compile(r"```.*?```", re.DOTALL)
 INLINE_CODE_RE = re.compile(r"`[^`]*`")
+POST_URL_RE = re.compile(r"{%\s*post_url\s+([^%\s]+)\s*%}")
 GENERATED_PATHS = {
     "/feed.xml",
     "/assets/js/excalidraw/render-excalidraw.js",
@@ -119,6 +120,11 @@ def main() -> int:
     for path in files:
         text = path.read_text(encoding="utf-8", errors="ignore")
         text_without_examples = INLINE_CODE_RE.sub("", FENCED_BLOCK_RE.sub("", text))
+        for post_ref in POST_URL_RE.findall(text_without_examples):
+            post_path = ROOT / "_posts" / f"{post_ref}.md"
+            if not post_path.is_file():
+                failures.append(f"{path.relative_to(ROOT)}: missing post_url target {post_ref}")
+
         for match in URL_RE.finditer(text_without_examples):
             link = next(group for group in match.groups() if group)
             if is_external_or_template(link):
