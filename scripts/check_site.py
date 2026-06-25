@@ -23,6 +23,7 @@ URL_RE = re.compile(
 )
 IMG_TAG_RE = re.compile(r"<img\b[^>]*>", re.IGNORECASE)
 ALT_ATTR_RE = re.compile(r"\balt=[\"']([^\"']*)[\"']", re.IGNORECASE)
+MARKDOWN_IMAGE_RE = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
 FRONT_MATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 FENCED_BLOCK_RE = re.compile(r"```.*?```", re.DOTALL)
 INLINE_CODE_RE = re.compile(r"`[^`]*`")
@@ -299,6 +300,12 @@ def main() -> int:
             alt_match = ALT_ATTR_RE.search(img_tag)
             if not alt_match or not alt_match.group(1).strip():
                 failures.append(f"{path.relative_to(ROOT)}: img tags must include non-empty alt text")
+
+        for alt_text, _target in MARKDOWN_IMAGE_RE.findall(text_without_examples):
+            if not alt_text.strip():
+                failures.append(
+                    f"{path.relative_to(ROOT)}: markdown images must include non-empty alt text"
+                )
 
         if path.parent == ROOT and LIVE_PAGE_PLACEHOLDER_RE.search(text_without_examples):
             failures.append(f"{path.relative_to(ROOT)}: live page placeholder remains")
