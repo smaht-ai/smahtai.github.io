@@ -295,6 +295,11 @@ def main() -> int:
             failures.append(f"{relative}: missing front matter layout")
         elif layout and layout not in ALLOWED_LAYOUTS:
             failures.append(f"{relative}: unknown front matter layout {layout}")
+        title = front_matter.get("title")
+        if layout and not front_matter_string(title):
+            failures.append(f"{relative}: missing front matter title")
+        elif isinstance(title, str) and title != title.strip():
+            failures.append(f"{relative}: front matter title must be trimmed")
         if error := permalink_error(front_matter.get("permalink")):
             failures.append(f"{relative}: front matter permalink {error}")
         if "_posts" in relative.parts:
