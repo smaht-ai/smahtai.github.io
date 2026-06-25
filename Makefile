@@ -1,4 +1,4 @@
-.PHONY: install serve build clean
+.PHONY: install serve build check clean
 
 install:
 	bundle install
@@ -8,6 +8,9 @@ serve:
 
 build:
 	bundle exec jekyll build
+
+check:
+	python3 scripts/check_site.py
 
 clean:
 	bundle exec jekyll clean
