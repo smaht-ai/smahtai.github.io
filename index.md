@@ -173,19 +173,19 @@ title: "Smaht.ai - Experienced AI Engineers & Entrepreneurs"
       <h3 class="text-lg font-semibold text-gray-900 mb-4">How to Join</h3>
       <ol class="space-y-3 text-gray-700 text-sm md:text-base">
         <li>
-          <span class="font-semibold text-gray-900">1. Application:</span>
+          <span class="font-semibold text-gray-900">Application:</span>
           Fill out our online application form.
         </li>
         <li>
-          <span class="font-semibold text-gray-900">2. Review:</span>
+          <span class="font-semibold text-gray-900">Review:</span>
           Our team will review your application to ensure it aligns with our community values and goals.
         </li>
         <li>
-          <span class="font-semibold text-gray-900">3. Interview:</span>
+          <span class="font-semibold text-gray-900">Interview:</span>
           If your application is shortlisted, we will schedule a 15‑minute video call to get to know you better.
         </li>
         <li>
-          <span class="font-semibold text-gray-900">4. Invitation:</span>
+          <span class="font-semibold text-gray-900">Invitation:</span>
           Successful applicants will receive an invitation to join our Slack community.
         </li>
       </ol>
