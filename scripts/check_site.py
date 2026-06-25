@@ -7,6 +7,8 @@ import re
 import sys
 from pathlib import Path
 
+import yaml
+
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT_SUFFIXES = {".md", ".html"}
@@ -30,6 +32,7 @@ PLACEHOLDER_CHECK_FILES = {
     ROOT / "README.md",
     ROOT / "_config.yml",
 }
+CONFIG = ROOT / "_config.yml"
 
 
 def content_files() -> list[Path]:
@@ -108,6 +111,22 @@ def check_local_link(link: str, pages: set[str]) -> bool:
     return candidate.exists()
 
 
+def collect_nav_links(items: object) -> list[str]:
+    links: list[str] = []
+    if isinstance(items, list):
+        for item in items:
+            links.extend(collect_nav_links(item))
+        return links
+    if not isinstance(items, dict):
+        return links
+    url = items.get("url")
+    if isinstance(url, str):
+        links.append(url)
+    links.extend(collect_nav_links(items.get("children")))
+    links.extend(collect_nav_links(items.get("links")))
+    return links
+
+
 def main() -> int:
     files = content_files()
     pages = generated_paths(files)
@@ -117,6 +136,15 @@ def main() -> int:
         text = path.read_text(encoding="utf-8", errors="ignore")
         if PLACEHOLDER_RE.search(text):
             failures.append(f"{path.relative_to(ROOT)}: starter placeholder remains")
+
+    config = yaml.safe_load(CONFIG.read_text(encoding="utf-8")) or {}
+    for link in collect_nav_links(config.get("header_pages")) + collect_nav_links(
+        config.get("site_map")
+    ):
+        if is_external_or_template(link):
+            continue
+        if not check_local_link(link, pages):
+            failures.append(f"_config.yml: missing navigation target {link}")
 
     for path in files:
         text = path.read_text(encoding="utf-8", errors="ignore")
