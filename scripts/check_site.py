@@ -146,6 +146,14 @@ def check_local_link(link: str, pages: set[str]) -> bool:
     return candidate.exists()
 
 
+def check_local_file(link: str) -> bool:
+    clean = link.split("#", 1)[0].split("?", 1)[0]
+    if not clean:
+        return False
+    candidate = ROOT / clean.lstrip("/") if clean.startswith("/") else ROOT / clean
+    return candidate.is_file()
+
+
 def collect_nav_links(items: object) -> list[str]:
     links: list[str] = []
     if isinstance(items, list):
@@ -323,7 +331,7 @@ def main() -> int:
                 f"{path.relative_to(ROOT)}: external front matter image {image} {error}"
             )
             continue
-        if image and not is_external_or_template(image) and not check_local_link(image, pages):
+        if image and not is_external_or_template(image) and not check_local_file(image):
             failures.append(f"{path.relative_to(ROOT)}: missing front matter image {image}")
 
     if failures:
