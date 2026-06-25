@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import re
 import sys
+from datetime import date
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
@@ -165,6 +166,17 @@ def site_url_host(site_url: str) -> str:
     return parsed.hostname or ""
 
 
+def is_valid_date_prefix(value: str) -> bool:
+    if not re.match(r"^\d{4}-\d{2}-\d{2}", value):
+        return False
+    year, month, day = (int(part) for part in value[:10].split("-"))
+    try:
+        date(year, month, day)
+    except ValueError:
+        return False
+    return True
+
+
 def main() -> int:
     files = content_files()
     pages = generated_paths(files)
@@ -250,10 +262,14 @@ def main() -> int:
             front_matter_date = front_matter_string(front_matter.get("date"))
             if not filename_match:
                 failures.append(f"{relative}: post filename must start with YYYY-MM-DD")
+            elif not is_valid_date_prefix(filename_match.group(1)):
+                failures.append(f"{relative}: post filename date must be a valid date")
             elif not front_matter_date.startswith(filename_match.group(1)):
                 failures.append(
                     f"{relative}: filename date does not match front matter date"
                 )
+            elif not is_valid_date_prefix(front_matter_date):
+                failures.append(f"{relative}: front matter date must be a valid date")
         image = front_matter_string(front_matter.get("image"))
         if image and (error := external_url_error(image)):
             failures.append(
