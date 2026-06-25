@@ -16,7 +16,10 @@ ROOT = Path(__file__).resolve().parents[1]
 CONTENT_SUFFIXES = {".md", ".html"}
 SKIP_NAMES = {"README.md", "AGENTS.md", "CLAUDE.md", "SVG_STYLING_GUIDE.md", "LICENSE"}
 SKIP_DIRS = {".git", ".jekyll-cache", ".sass-cache", "_site", "vendor"}
-URL_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)|(?:src|href)=[\"']([^\"']+)[\"']")
+URL_RE = re.compile(
+    r"\[[^\]]+\]\(([^)]+)\)|(?:action|href|src)=[\"']([^\"']+)[\"']",
+    re.IGNORECASE,
+)
 FRONT_MATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 FENCED_BLOCK_RE = re.compile(r"```.*?```", re.DOTALL)
 INLINE_CODE_RE = re.compile(r"`[^`]*`")
