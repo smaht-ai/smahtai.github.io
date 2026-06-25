@@ -60,31 +60,29 @@ def parse_front_matter(path: Path) -> dict[str, str]:
     return data
 
 
+def generated_paths_for_file(path: Path) -> set[str]:
+    relative = path.relative_to(ROOT)
+    front_matter = parse_front_matter(path)
+    permalink = front_matter.get("permalink")
+    if permalink:
+        normalized = permalink if permalink.startswith("/") else f"/{permalink}"
+        return {normalized.rstrip("/") or "/", f"{normalized.rstrip('/')}/"}
+    if "_posts" in relative.parts:
+        # This repo config uses /:categories/:title/; uncategorized posts use /title/.
+        title = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", path.stem)
+        categories = front_matter.get("categories", "").split()
+        prefix = "/" + "/".join(categories) if categories else ""
+        return {f"{prefix}/{title}/"}
+    if path.name == "index.md":
+        return {"/"}
+    stem_path = "/" + str(relative.with_suffix(""))
+    return {stem_path, f"{stem_path}/", "/" + str(relative.with_suffix(".html"))}
+
+
 def generated_paths(files: list[Path]) -> set[str]:
     paths = {"/", "/404.html"}
     for path in files:
-        relative = path.relative_to(ROOT)
-        front_matter = parse_front_matter(path)
-        permalink = front_matter.get("permalink")
-        if permalink:
-            normalized = permalink if permalink.startswith("/") else f"/{permalink}"
-            paths.add(normalized.rstrip("/") or "/")
-            paths.add(f"{normalized.rstrip('/')}/")
-            continue
-        if "_posts" in relative.parts:
-            # This repo config uses /:categories/:title/; uncategorized posts use /title/.
-            title = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", path.stem)
-            categories = front_matter.get("categories", "").split()
-            prefix = "/" + "/".join(categories) if categories else ""
-            paths.add(f"{prefix}/{title}/")
-            continue
-        if path.name == "index.md":
-            paths.add("/")
-        else:
-            stem_path = "/" + str(relative.with_suffix(""))
-            paths.add(stem_path)
-            paths.add(f"{stem_path}/")
-            paths.add("/" + str(relative.with_suffix(".html")))
+        paths.update(generated_paths_for_file(path))
     return paths
 
 
@@ -132,6 +130,17 @@ def main() -> int:
     files = content_files()
     pages = generated_paths(files)
     failures: list[str] = []
+
+    path_sources: dict[str, Path] = {}
+    for path in files:
+        for generated_path in generated_paths_for_file(path):
+            if generated_path in path_sources:
+                failures.append(
+                    f"{path.relative_to(ROOT)}: generated path {generated_path} "
+                    f"duplicates {path_sources[generated_path].relative_to(ROOT)}"
+                )
+            else:
+                path_sources[generated_path] = path
 
     for path in sorted(PLACEHOLDER_CHECK_FILES):
         text = path.read_text(encoding="utf-8", errors="ignore")
