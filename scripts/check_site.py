@@ -21,6 +21,8 @@ URL_RE = re.compile(
     r"\[[^\]]+\]\(([^)]+)\)|(?:action|href|src)=[\"']([^\"']+)[\"']",
     re.IGNORECASE,
 )
+IMG_TAG_RE = re.compile(r"<img\b[^>]*>", re.IGNORECASE)
+ALT_ATTR_RE = re.compile(r"\balt=[\"']([^\"']*)[\"']", re.IGNORECASE)
 FRONT_MATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 FENCED_BLOCK_RE = re.compile(r"```.*?```", re.DOTALL)
 INLINE_CODE_RE = re.compile(r"`[^`]*`")
@@ -292,6 +294,11 @@ def main() -> int:
                 continue
             if not check_local_link(link, pages):
                 failures.append(f"{path.relative_to(ROOT)}: missing local link {link}")
+
+        for img_tag in IMG_TAG_RE.findall(text_without_examples):
+            alt_match = ALT_ATTR_RE.search(img_tag)
+            if not alt_match or not alt_match.group(1).strip():
+                failures.append(f"{path.relative_to(ROOT)}: img tags must include non-empty alt text")
 
         if path.parent == ROOT and LIVE_PAGE_PLACEHOLDER_RE.search(text_without_examples):
             failures.append(f"{path.relative_to(ROOT)}: live page placeholder remains")
