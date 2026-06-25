@@ -161,6 +161,8 @@ def check_local_file(link: str) -> bool:
 
 
 def local_repo_path(clean_link: str) -> Path | None:
+    if "\\" in clean_link:
+        return None
     path_text = clean_link.lstrip("/") if clean_link.startswith("/") else clean_link
     candidate = ROOT / path_text
     try:

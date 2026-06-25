@@ -30,6 +30,19 @@ def test_local_paths_reject_parent_directory_escapes(
     assert not check_site.check_local_file("../outside.md")
 
 
+def test_local_paths_reject_backslash_escapes(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    site_root = tmp_path / "site"
+    site_root.mkdir()
+    monkeypatch.setattr(check_site, "ROOT", site_root)
+
+    assert not check_site.check_local_link(r"..\outside.md", set())
+    assert not check_site.check_local_link(r"/assets\..\outside.md", set())
+    assert not check_site.check_local_file(r"assets\image.png")
+
+
 def test_local_paths_accept_files_inside_site_root(
     tmp_path: Path,
     monkeypatch,
