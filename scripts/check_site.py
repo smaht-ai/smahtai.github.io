@@ -112,6 +112,15 @@ def is_external_or_template(link: str) -> bool:
     )
 
 
+def external_url_error(link: str) -> str | None:
+    if not link.startswith(("http://", "https://")):
+        return None
+    parsed = urlparse(link)
+    if not parsed.netloc:
+        return "must include a host"
+    return None
+
+
 def check_local_link(link: str, pages: set[str]) -> bool:
     clean = link.split("#", 1)[0].split("?", 1)[0]
     if not clean:
@@ -192,6 +201,9 @@ def main() -> int:
     for link in collect_nav_links(config.get("header_pages")) + collect_nav_links(
         config.get("site_map")
     ):
+        if error := external_url_error(link):
+            failures.append(f"_config.yml: external navigation URL {link} {error}")
+            continue
         if is_external_or_template(link):
             continue
         if not check_local_link(link, pages):
@@ -207,6 +219,11 @@ def main() -> int:
 
         for match in URL_RE.finditer(text_without_examples):
             link = next(group for group in match.groups() if group)
+            if error := external_url_error(link):
+                failures.append(
+                    f"{path.relative_to(ROOT)}: external URL {link} {error}"
+                )
+                continue
             if is_external_or_template(link):
                 continue
             if not check_local_link(link, pages):
@@ -232,6 +249,11 @@ def main() -> int:
                     f"{relative}: filename date does not match front matter date"
                 )
         image = front_matter_string(front_matter.get("image"))
+        if image and (error := external_url_error(image)):
+            failures.append(
+                f"{path.relative_to(ROOT)}: external front matter image {image} {error}"
+            )
+            continue
         if image and not is_external_or_template(image) and not check_local_link(image, pages):
             failures.append(f"{path.relative_to(ROOT)}: missing front matter image {image}")
 
