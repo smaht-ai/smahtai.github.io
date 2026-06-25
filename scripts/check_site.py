@@ -7,6 +7,7 @@ import re
 import sys
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 import yaml
 
@@ -38,6 +39,7 @@ PLACEHOLDER_CHECK_FILES = {
     ROOT / "_config.yml",
 }
 CONFIG = ROOT / "_config.yml"
+CNAME = ROOT / "CNAME"
 ALLOWED_LAYOUTS = {"default", "docs", "excalidraw-editor", "page", "post"}
 
 
@@ -142,6 +144,15 @@ def collect_nav_links(items: object) -> list[str]:
     return links
 
 
+def site_url_host(site_url: str) -> str:
+    parsed = urlparse(site_url)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        return ""
+    if parsed.path not in {"", "/"} or parsed.params or parsed.query or parsed.fragment:
+        return ""
+    return parsed.hostname or ""
+
+
 def main() -> int:
     files = content_files()
     pages = generated_paths(files)
@@ -164,6 +175,20 @@ def main() -> int:
             failures.append(f"{path.relative_to(ROOT)}: starter placeholder remains")
 
     config = yaml.safe_load(CONFIG.read_text(encoding="utf-8")) or {}
+    if CNAME.is_file():
+        custom_domain = CNAME.read_text(encoding="utf-8").strip().lower()
+        configured_host = site_url_host(front_matter_string(config.get("url"))).lower()
+        if not custom_domain:
+            failures.append("CNAME: custom domain is empty")
+        elif "/" in custom_domain or ":" in custom_domain:
+            failures.append("CNAME: custom domain must be a bare hostname")
+        elif not configured_host:
+            failures.append("_config.yml: url must be an absolute root URL")
+        elif configured_host != custom_domain:
+            failures.append(
+                f"_config.yml: url host {configured_host} does not match CNAME {custom_domain}"
+            )
+
     for link in collect_nav_links(config.get("header_pages")) + collect_nav_links(
         config.get("site_map")
     ):
