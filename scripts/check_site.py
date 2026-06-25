@@ -33,6 +33,7 @@ PLACEHOLDER_CHECK_FILES = {
     ROOT / "_config.yml",
 }
 CONFIG = ROOT / "_config.yml"
+ALLOWED_LAYOUTS = {"default", "docs", "excalidraw-editor", "page", "post"}
 
 
 def content_files() -> list[Path]:
@@ -163,6 +164,11 @@ def main() -> int:
 
         front_matter = parse_front_matter(path)
         relative = path.relative_to(ROOT)
+        layout = front_matter.get("layout")
+        if not layout and "_includes" not in relative.parts:
+            failures.append(f"{relative}: missing front matter layout")
+        elif layout and layout not in ALLOWED_LAYOUTS:
+            failures.append(f"{relative}: unknown front matter layout {layout}")
         if "_posts" in relative.parts:
             filename_match = POST_FILENAME_RE.match(path.name)
             front_matter_date = front_matter.get("date", "")
