@@ -27,6 +27,7 @@ INLINE_CODE_RE = re.compile(r"`[^`]*`")
 POST_URL_RE = re.compile(r"{%\s*post_url\s+([^%\s]+)\s*%}")
 POST_FILENAME_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})-.+\.md$")
 WHITESPACE_RE = re.compile(r"\s")
+CATEGORY_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 GENERATED_PATHS = {
     "/feed.xml",
     "/assets/js/excalidraw/render-excalidraw.js",
@@ -194,6 +195,17 @@ def permalink_error(value: Any) -> str | None:
     return None
 
 
+def category_errors(value: Any) -> list[str]:
+    categories = front_matter_list(value)
+    if not categories:
+        return ["must include at least one category"]
+    errors = []
+    for category in categories:
+        if not CATEGORY_RE.fullmatch(category):
+            errors.append(f"{category} must be lowercase hyphen-case")
+    return errors
+
+
 def main() -> int:
     files = content_files()
     pages = generated_paths(files)
@@ -289,6 +301,8 @@ def main() -> int:
                 )
             elif not is_valid_date_prefix(front_matter_date):
                 failures.append(f"{relative}: front matter date must be a valid date")
+            for error in category_errors(front_matter.get("categories")):
+                failures.append(f"{relative}: front matter categories {error}")
         image = front_matter_string(front_matter.get("image"))
         if image and (error := external_url_error(image)):
             failures.append(
