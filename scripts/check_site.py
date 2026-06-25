@@ -29,6 +29,10 @@ PLACEHOLDER_RE = re.compile(
     r"\b(yourusername|yourrepo|yourcompany|analytiq-pages-starter)\b",
     re.IGNORECASE,
 )
+LIVE_PAGE_PLACEHOLDER_RE = re.compile(
+    r"\b(Speaker Name|https?://example\.com(?:/[^)\s\"']*)?)\b",
+    re.IGNORECASE,
+)
 PLACEHOLDER_CHECK_FILES = {
     ROOT / "README.md",
     ROOT / "_config.yml",
@@ -182,6 +186,9 @@ def main() -> int:
                 continue
             if not check_local_link(link, pages):
                 failures.append(f"{path.relative_to(ROOT)}: missing local link {link}")
+
+        if path.parent == ROOT and LIVE_PAGE_PLACEHOLDER_RE.search(text_without_examples):
+            failures.append(f"{path.relative_to(ROOT)}: live page placeholder remains")
 
         front_matter = parse_front_matter(path)
         relative = path.relative_to(ROOT)
