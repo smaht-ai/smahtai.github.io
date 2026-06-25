@@ -14,10 +14,11 @@ Ruby and Bundler are optional for the lightweight content audit:
 make check
 ```
 
-The checker validates local links, front matter image references, generated
-Jekyll paths that the source content expects, and obvious starter-template
-placeholder drift in repository-level site metadata. It also verifies that the
-GitHub Pages `CNAME` custom domain matches the canonical `url` in `_config.yml`.
+The checker validates local links, front matter image references, blog post date
+consistency, generated Jekyll paths that the source content expects, and obvious
+starter-template placeholder drift in repository-level site metadata. It also
+verifies that the GitHub Pages `CNAME` custom domain matches the canonical
+`url` in `_config.yml`.
 
 When Ruby dependencies are available, run the full Jekyll build:
 

@@ -193,6 +193,11 @@ def is_valid_date_prefix(value: str) -> bool:
     return True
 
 
+def date_prefix_value(value: str) -> date:
+    year, month, day = (int(part) for part in value[:10].split("-"))
+    return date(year, month, day)
+
+
 def permalink_error(value: Any) -> str | None:
     if value is None:
         return None
@@ -337,6 +342,8 @@ def main() -> int:
                 )
             elif not is_valid_date_prefix(front_matter_date):
                 failures.append(f"{relative}: front matter date must be a valid date")
+            elif date_prefix_value(front_matter_date) > date.today():
+                failures.append(f"{relative}: post date must not be in the future")
             for error in category_errors(front_matter.get("categories")):
                 failures.append(f"{relative}: front matter categories {error}")
         image = front_matter_string(front_matter.get("image"))
