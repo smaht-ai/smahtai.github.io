@@ -21,6 +21,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install content check dependencies
+        run: python3 -m pip install PyYAML
+
+      - name: Run static content checks
+        run: python3 scripts/check_site.py
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
