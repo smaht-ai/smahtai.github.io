@@ -6,6 +6,7 @@ from __future__ import annotations
 import re
 import sys
 from pathlib import Path
+from typing import Any
 
 import yaml
 
@@ -47,30 +48,41 @@ def content_files() -> list[Path]:
     return sorted(files)
 
 
-def parse_front_matter(path: Path) -> dict[str, str]:
+def parse_front_matter(path: Path) -> dict[str, Any]:
     match = FRONT_MATTER_RE.match(path.read_text(encoding="utf-8", errors="ignore"))
     if not match:
         return {}
-    data: dict[str, str] = {}
-    for line in match.group(1).splitlines():
-        if ":" not in line or line.startswith(" "):
-            continue
-        key, value = line.split(":", 1)
-        data[key.strip()] = value.strip().strip('"').strip("'")
+    data = yaml.safe_load(match.group(1))
+    if not isinstance(data, dict):
+        return {}
     return data
+
+
+def front_matter_string(value: Any) -> str:
+    if value is None:
+        return ""
+    return str(value).strip().strip('"').strip("'")
+
+
+def front_matter_list(value: Any) -> list[str]:
+    if isinstance(value, list):
+        return [str(item).strip() for item in value if str(item).strip()]
+    if isinstance(value, str):
+        return [item for item in value.split() if item]
+    return []
 
 
 def generated_paths_for_file(path: Path) -> set[str]:
     relative = path.relative_to(ROOT)
     front_matter = parse_front_matter(path)
-    permalink = front_matter.get("permalink")
+    permalink = front_matter_string(front_matter.get("permalink"))
     if permalink:
         normalized = permalink if permalink.startswith("/") else f"/{permalink}"
         return {normalized.rstrip("/") or "/", f"{normalized.rstrip('/')}/"}
     if "_posts" in relative.parts:
         # This repo config uses /:categories/:title/; uncategorized posts use /title/.
         title = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", path.stem)
-        categories = front_matter.get("categories", "").split()
+        categories = front_matter_list(front_matter.get("categories"))
         prefix = "/" + "/".join(categories) if categories else ""
         return {f"{prefix}/{title}/"}
     if path.name == "index.md":
@@ -173,21 +185,21 @@ def main() -> int:
 
         front_matter = parse_front_matter(path)
         relative = path.relative_to(ROOT)
-        layout = front_matter.get("layout")
+        layout = front_matter_string(front_matter.get("layout"))
         if not layout and "_includes" not in relative.parts:
             failures.append(f"{relative}: missing front matter layout")
         elif layout and layout not in ALLOWED_LAYOUTS:
             failures.append(f"{relative}: unknown front matter layout {layout}")
         if "_posts" in relative.parts:
             filename_match = POST_FILENAME_RE.match(path.name)
-            front_matter_date = front_matter.get("date", "")
+            front_matter_date = front_matter_string(front_matter.get("date"))
             if not filename_match:
                 failures.append(f"{relative}: post filename must start with YYYY-MM-DD")
             elif not front_matter_date.startswith(filename_match.group(1)):
                 failures.append(
                     f"{relative}: filename date does not match front matter date"
                 )
-        image = front_matter.get("image")
+        image = front_matter_string(front_matter.get("image"))
         if image and not is_external_or_template(image) and not check_local_link(image, pages):
             failures.append(f"{path.relative_to(ROOT)}: missing front matter image {image}")
 
