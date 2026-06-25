@@ -25,6 +25,9 @@ FRONT_MATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 FENCED_BLOCK_RE = re.compile(r"```.*?```", re.DOTALL)
 INLINE_CODE_RE = re.compile(r"`[^`]*`")
 POST_URL_RE = re.compile(r"{%\s*post_url\s+([^%\s]+)\s*%}")
+LIQUID_RELATIVE_URL_RE = re.compile(
+    r"{{\s*['\"]([^'\"]+)['\"]\s*\|\s*relative_url\s*}}"
+)
 POST_FILENAME_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})-.+\.md$")
 WHITESPACE_RE = re.compile(r"\s")
 CATEGORY_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
@@ -260,6 +263,12 @@ def main() -> int:
             post_path = ROOT / "_posts" / f"{post_ref}.md"
             if not post_path.is_file():
                 failures.append(f"{path.relative_to(ROOT)}: missing post_url target {post_ref}")
+
+        for link in LIQUID_RELATIVE_URL_RE.findall(text_without_examples):
+            if not check_local_link(link, pages):
+                failures.append(
+                    f"{path.relative_to(ROOT)}: missing relative_url target {link}"
+                )
 
         for match in URL_RE.finditer(text_without_examples):
             link = next(group for group in match.groups() if group)
