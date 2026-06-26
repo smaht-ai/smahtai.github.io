@@ -128,6 +128,16 @@ def is_external_or_template(link: str) -> bool:
 def external_url_error(link: str) -> str | None:
     if not link.startswith(("http://", "https://")):
         return None
+    if "{{" in link or "{%" in link:
+        return None
+    if WHITESPACE_RE.search(link):
+        return "must not include whitespace"
+    if "\\" in link:
+        return "must not include backslashes"
+    if MALFORMED_PERCENT_ENCODING_RE.search(link):
+        return "must not include malformed percent encoding"
+    if any(ord(character) < 32 or ord(character) == 127 for character in link):
+        return "must not include control characters"
     parsed = urlparse(link)
     if not parsed.netloc:
         return "must include a host"

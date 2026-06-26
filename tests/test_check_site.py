@@ -88,6 +88,25 @@ def test_local_paths_reject_encoded_aliases(
     assert not check_site.check_local_file("assets/image%zz")
 
 
+def test_external_urls_reject_unsafe_spelling() -> None:
+    assert check_site.external_url_error("https://example.com/bad path") == (
+        "must not include whitespace"
+    )
+    assert check_site.external_url_error(r"https://example.com\bad") == (
+        "must not include backslashes"
+    )
+    assert check_site.external_url_error("https://example.com/%zz") == (
+        "must not include malformed percent encoding"
+    )
+
+
+def test_external_url_errors_skip_liquid_templates() -> None:
+    assert (
+        check_site.external_url_error("https://github.com/{{ site.repository }}")
+        is None
+    )
+
+
 def test_local_paths_accept_files_inside_site_root(
     tmp_path: Path,
     monkeypatch,
