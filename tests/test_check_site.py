@@ -43,6 +43,20 @@ def test_local_paths_reject_backslash_escapes(
     assert not check_site.check_local_file(r"assets\image.png")
 
 
+def test_local_paths_reject_protocol_relative_urls(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    site_root = tmp_path / "site"
+    asset = site_root / "assets" / "image.png"
+    asset.parent.mkdir(parents=True)
+    asset.write_bytes(b"png")
+    monkeypatch.setattr(check_site, "ROOT", site_root)
+
+    assert not check_site.check_local_link("//assets/image.png", set())
+    assert not check_site.check_local_file("//assets/image.png")
+
+
 def test_local_paths_reject_encoded_aliases(
     tmp_path: Path,
     monkeypatch,

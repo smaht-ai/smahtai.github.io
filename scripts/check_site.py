@@ -162,6 +162,8 @@ def check_local_file(link: str) -> bool:
 
 
 def local_repo_path(clean_link: str) -> Path | None:
+    if clean_link.startswith("//"):
+        return None
     if "\\" in clean_link:
         return None
     if MALFORMED_PERCENT_ENCODING_RE.search(clean_link):
