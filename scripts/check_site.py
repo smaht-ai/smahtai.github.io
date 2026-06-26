@@ -8,7 +8,7 @@ import sys
 from datetime import date
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import unquote, urlparse
 
 import yaml
 
@@ -34,6 +34,7 @@ LIQUID_RELATIVE_URL_RE = re.compile(
 POST_FILENAME_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})-.+\.md$")
 WHITESPACE_RE = re.compile(r"\s")
 CATEGORY_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+MALFORMED_PERCENT_ENCODING_RE = re.compile(r"%(?![0-9A-Fa-f]{2})")
 GENERATED_PATHS = {
     "/feed.xml",
     "/assets/js/excalidraw/render-excalidraw.js",
@@ -162,6 +163,15 @@ def check_local_file(link: str) -> bool:
 
 def local_repo_path(clean_link: str) -> Path | None:
     if "\\" in clean_link:
+        return None
+    if MALFORMED_PERCENT_ENCODING_RE.search(clean_link):
+        return None
+    decoded_link = unquote(clean_link)
+    if decoded_link != clean_link:
+        return None
+    if "\\" in decoded_link:
+        return None
+    if any(ord(character) < 32 or ord(character) == 127 for character in decoded_link):
         return None
     path_text = clean_link.lstrip("/") if clean_link.startswith("/") else clean_link
     candidate = ROOT / path_text
