@@ -138,10 +138,31 @@ def external_url_error(link: str) -> str | None:
         return "must not include malformed percent encoding"
     if any(ord(character) < 32 or ord(character) == 127 for character in link):
         return "must not include control characters"
+    decoded_link = fully_unquote(link)
+    if MALFORMED_PERCENT_ENCODING_RE.search(decoded_link):
+        return "must not include malformed percent encoding"
+    if decoded_link != link and WHITESPACE_RE.search(decoded_link):
+        return "must not include encoded whitespace"
+    if decoded_link != link and "\\" in decoded_link:
+        return "must not include encoded backslashes"
+    if decoded_link != link and any(
+        ord(character) < 32 or ord(character) == 127 for character in decoded_link
+    ):
+        return "must not include encoded control characters"
     parsed = urlparse(link)
     if not parsed.netloc:
         return "must include a host"
     return None
+
+
+def fully_unquote(value: str) -> str:
+    decoded = value
+    for _ in range(5):
+        next_value = unquote(decoded)
+        if next_value == decoded:
+            return decoded
+        decoded = next_value
+    return decoded
 
 
 def check_local_link(link: str, pages: set[str]) -> bool:

@@ -92,11 +92,32 @@ def test_external_urls_reject_unsafe_spelling() -> None:
     assert check_site.external_url_error("https://example.com/bad path") == (
         "must not include whitespace"
     )
+    assert check_site.external_url_error("https://example.com/bad%20path") == (
+        "must not include encoded whitespace"
+    )
+    assert check_site.external_url_error("https://example.com/bad%2520path") == (
+        "must not include encoded whitespace"
+    )
     assert check_site.external_url_error(r"https://example.com\bad") == (
         "must not include backslashes"
     )
+    assert check_site.external_url_error("https://example.com/%5cbad") == (
+        "must not include encoded backslashes"
+    )
+    assert check_site.external_url_error("https://example.com/%255cbad") == (
+        "must not include encoded backslashes"
+    )
     assert check_site.external_url_error("https://example.com/%zz") == (
         "must not include malformed percent encoding"
+    )
+    assert check_site.external_url_error("https://example.com/%25zz") == (
+        "must not include malformed percent encoding"
+    )
+    assert check_site.external_url_error("https://example.com/%7fname") == (
+        "must not include encoded control characters"
+    )
+    assert check_site.external_url_error("https://example.com/%257fname") == (
+        "must not include encoded control characters"
     )
 
 
