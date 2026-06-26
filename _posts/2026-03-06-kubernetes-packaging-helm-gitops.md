@@ -107,6 +107,7 @@ doc-router/
 A template looks like:
 
 ```yaml
+{% raw %}
 # templates/deployment.yaml
 spec:
   replicas: {{ .Values.replicaCount }}
@@ -118,6 +119,7 @@ spec:
           resources:
             requests:
               cpu: {{ .Values.resources.requests.cpu }}
+{% endraw %}
 ```
 
 To install with custom values:
