@@ -166,6 +166,8 @@ def local_repo_path(clean_link: str) -> Path | None:
         return None
     if "\\" in clean_link:
         return None
+    if ":" in clean_link:
+        return None
     if MALFORMED_PERCENT_ENCODING_RE.search(clean_link):
         return None
     decoded_link = unquote(clean_link)

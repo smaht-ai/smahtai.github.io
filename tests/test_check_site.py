@@ -57,6 +57,21 @@ def test_local_paths_reject_protocol_relative_urls(
     assert not check_site.check_local_file("//assets/image.png")
 
 
+def test_local_paths_reject_uri_schemes_and_drive_labels(
+    tmp_path: Path,
+    monkeypatch,
+) -> None:
+    site_root = tmp_path / "site"
+    asset = site_root / "assets" / "image.png"
+    asset.parent.mkdir(parents=True)
+    asset.write_bytes(b"png")
+    monkeypatch.setattr(check_site, "ROOT", site_root)
+
+    assert not check_site.check_local_link("file:assets/image.png", set())
+    assert not check_site.check_local_link("C:/assets/image.png", set())
+    assert not check_site.check_local_file("file:assets/image.png")
+
+
 def test_local_paths_reject_encoded_aliases(
     tmp_path: Path,
     monkeypatch,
