@@ -5,7 +5,6 @@ role: "Building with AI · OSS Maintainer · PhD"
 summary: "Engineer and open-source maintainer focused on GenAI apps, agents, and robust data platforms."
 image: /assets/images/sebastian_smaht.png
 linkedin: https://www.linkedin.com/in/sebastian-wallkoetter/
-testimonial: "..."
 order: 5
 ---
 
