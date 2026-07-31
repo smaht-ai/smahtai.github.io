@@ -32,11 +32,15 @@ The Analytiq Pages Starter is a Jekyll-based static site generator template that
 │   ├── custom-head.html     # Favicon, SEO/JSON-LD, analytics
 │   ├── json-ld.html         # Structured data
 │   └── talk-card.html       # Talk listing card
+├── _layouts/
+│   └── member.html          # People profile layout
+├── _members/                # Member profile collection (People)
 ├── _posts/                  # Blog posts collection
 ├── assets/                  # Static assets
 │   ├── css/community.css    # Site design tokens and shared styles
 │   ├── excalidraw/          # Excalidraw diagram files
-│   └── images/              # Image files (logo, events, blog)
+│   └── images/              # Image files (logo, events, blog, member portraits)
+├── people.md                # People index page
 ├── .github/workflows/       # GitHub Actions workflows
 ├── *.md                     # Root-level pages (index, about, events, talks, etc.)
 ├── 404.html                 # Custom 404 error page
@@ -58,7 +62,7 @@ The Analytiq Pages Starter is a Jekyll-based static site generator template that
 - **`_config.yml`**: Main site configuration
   - Site metadata (title, author, description)
   - Navigation menus (`header_pages`, `site_map`)
-  - Collections configuration (`posts`)
+  - Collections configuration (`posts`, `members`)
   - Pagination settings
   - Plugin list
 
@@ -72,6 +76,10 @@ The Analytiq Pages Starter is a Jekyll-based static site generator template that
   - Must follow date-prefixed naming convention
   - Use `layout: post`
   - Categories are space-separated or YAML arrays in front matter
+
+- **`_members/*.md`**: People profiles (see “Adding a People profile” below)
+  - Collection permalink: `/people/:name/`
+  - Index page: `people.md` → `/people/`
 
 There is **no** `docs/` collection on this site. Product documentation lives on external sites (e.g. DocRouter) when needed.
 ### Theme Integration
@@ -113,6 +121,63 @@ There is **no** `docs/` collection on this site. Product documentation lives on 
 
 **Important**: Blog posts must use **today's date** in both the filename and the `date` field in front matter. Do not use future dates or past dates - always use the current date when creating a new blog post.
 
+### Adding a People profile
+
+Member pages live in the `_members/` collection and appear on `/people/` and the homepage consultant grid (sorted by `order`).
+
+1. Create `_members/kebab-case-name.md` with explicit front matter (the site checker requires `layout` on disk even though `_config.yml` also defaults it):
+
+```yaml
+---
+layout: member
+title: Full Legal Or Preferred Name
+role: "Short role line · Company · Location"
+summary: "One-sentence blurb for cards on /people/ and the homepage."
+image: /assets/images/firstname_smaht.png
+linkedin: https://www.linkedin.com/in/slug/
+website: https://example.com
+website_label: Example.com
+order: 5
+testimonial: "Optional quote about what Smaht.AI did for them."
+---
+
+Preferred-first-name is … (body bio; LinkedIn-derived, edited).
+
+Second paragraph with background, education, notable work.
+```
+
+2. **Naming in copy**: `title` is the full name shown in the H1. In the body bio, use the name they go by day-to-day if different (e.g. title `Abubakarr Jaye`, body starts with `Abu is…`).
+3. **`order`**: Lower numbers appear first. Homepage and `/people/` both sort on this field.
+4. **`testimonial`**: Optional. If omitted, the “On Smaht.AI” block is hidden.
+5. **`linkedin` / `website`**: Optional. Prefer full HTTPS URLs.
+6. Restart `jekyll serve` after adding the first member or changing `_config.yml` collections — layout/config changes are not always picked up by a soft reload.
+7. Run `python3.11 scripts/check_site.py` before pushing (`member` is an allowed layout).
+
+### Creating People profile images
+
+Portraits should match the existing Smaht illustrated style (see `sean_smaht.png`, `andrei_smaht.png`, `abubakarr_smaht.png`).
+
+**Visual style**
+- Stippled / cross-hatch black-and-white illustration (not a raw photo or heavy photo filter)
+- Abstract Boston skyline / tech geometry behind the subject (concentric arcs, dashed vertical lines)
+- Sparse copper/orange accent dots (and optionally one orange gridded circle)
+- Head-and-shoulders or chest-up, friendly professional expression
+- No text, watermarks, or LinkedIn chrome in the frame
+
+**Workflow**
+1. Obtain a clear source photo (LinkedIn display photo or member-provided headshot).
+2. Generate an illustrated portrait using that photo **plus** existing `*_smaht.png` files as style references.
+3. Export a **square** PNG, about **1000×1000**, saved as `/assets/images/<firstname>_smaht.png`.
+4. **Crop so the subject fills the frame** when generating art (face and upper torso dominate; avoid large empty bands). Save a square ~1000×1000 PNG.
+5. Point the member’s `image:` front matter at that path.
+6. **Do not use CSS cropping on the site.** Cards and profile pages use `object-contain` so the full portrait is visible. Never use `object-cover` for member photos.
+7. Do not commit temporary LinkedIn source downloads unless needed for regeneration.
+
+**Do not**
+- Leave landscape generations uncropped for the site asset
+- Use the unprocessed photo as the profile image when an illustrated match exists for other members
+- Put profile images under `/assets/images/blog/` (those are post splash assets)
+- Use `object-cover` / `object-top` on member images in templates (that clips heads)
 ### Membership apply CTA
 
 Use the shared include instead of hardcoding the Google Form URL:
@@ -357,11 +422,14 @@ project-root/
 │   ├── custom-head.html
 │   ├── json-ld.html
 │   └── talk-card.html
+├── _layouts/member.html     # People profile layout
+├── _members/                # People profiles
 ├── _posts/                  # Blog posts
 ├── assets/
 │   ├── css/community.css    # Design tokens
 │   ├── excalidraw/
-│   └── images/
+│   └── images/              # includes *_smaht.png portraits
+├── people.md                # People index
 ├── events.md / talks.md / technology.md / …
 ├── favicon.ico
 ├── Gemfile

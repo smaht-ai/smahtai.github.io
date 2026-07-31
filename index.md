@@ -58,10 +58,10 @@ title: Smaht.AI - AI Engineers & Entrepreneurs"
         <a href="{{ member.url | relative_url }}"
            class="border border-gray-100 rounded-lg p-5 bg-gray-50 block no-underline hover:no-underline hover:border-gray-300 transition-colors group">
           {% if member.image %}
-          <div class="mb-4 rounded-lg overflow-hidden bg-gray-100">
+          <div class="mb-4 rounded-lg overflow-hidden bg-gray-50 aspect-[4/5]">
             <img src="{{ member.image | relative_url }}"
                  alt="{{ member.title | escape }}"
-                 class="w-full h-56 object-cover"
+                 class="w-full h-full object-contain"
                  loading="lazy">
           </div>
           {% endif %}

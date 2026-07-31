@@ -19,12 +19,12 @@ description: "Meet members of Smaht.AI — AI engineers and entrepreneurs in our
     <a href="{{ member.url | relative_url }}"
        class="community-card p-5 block no-underline hover:no-underline group">
       {% if member.image %}
-      <div class="mb-4 rounded-lg overflow-hidden bg-gray-100">
+      <div class="mb-4 rounded-lg overflow-hidden bg-gray-50 aspect-[4/5]">
         <img src="{{ member.image | relative_url }}"
              alt="{{ member.title | escape }}"
-             class="w-full h-56 object-cover"
+             class="w-full h-full object-contain"
              width="400"
-             height="224"
+             height="500"
              loading="lazy">
       </div>
       {% endif %}
