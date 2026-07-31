@@ -168,5 +168,16 @@ plugins:
 
 future: true
 
+# Default OG/social image for pages that don't set their own image: front matter
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/og-default.png
+
+# Twitter card type - summary_large_image gives a large banner preview
+twitter:
+  card: summary_large_image
+
 # GitHub repository configuration (update with your repo)
 repository: smaht-ai/smahtai.github.io

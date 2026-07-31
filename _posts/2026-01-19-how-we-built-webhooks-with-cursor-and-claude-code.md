@@ -10,7 +10,7 @@ description: "How DocRouter built reliable outbound webhooks with Cursor and Cla
 
 We recently shipped outbound **webhook support** in DocRouter. This post is a practical look at *how* we implemented it—both technically and with the AI tooling workflow that got it across the finish line.
 
-If you just want to use webhooks (not implement them), see the docs: [`/docs/webhooks/`](/docs/webhooks/).
+If you just want to use webhooks (not implement them), see the [DocRouter webhooks docs](https://docrouter.ai/docs/webhooks/).
 
 <img src="/assets/images/webhook_config.png" alt="DocRouter webhook configuration screen" style="display: block; margin: 2rem auto; width: 90%; border-radius: 0.75rem; box-shadow: 0 12px 20px -6px rgba(0, 0, 0, 0.15);">
 
@@ -126,7 +126,7 @@ We also generated the initial docs in Cursor using **Grok**, then aggressively s
 - how to verify signatures
 - how retries work
 
-See: [`/docs/webhooks/`](/docs/webhooks/)
+See: [DocRouter webhooks docs](https://docrouter.ai/docs/webhooks/)
 
 ## Closing thoughts
 

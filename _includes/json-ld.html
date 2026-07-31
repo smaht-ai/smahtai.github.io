@@ -1,0 +1,108 @@
+{% comment %}
+  JSON-LD structured data for search engine rich results.
+  Organization + WebSite on every page; BlogPosting on posts; sitelinks ItemList.
+{% endcomment %}
+
+{% assign site_url = site.url %}
+{% assign og_image = site_url | append: '/assets/images/og-default.png' %}
+{% assign logo_url = site_url | append: '/assets/images/smaht-logo_512.png' %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ site_url }}/#organization",
+      "name": "Smaht.AI",
+      "alternateName": ["Smaht.ai", "Smaht AI"],
+      "url": "{{ site_url }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ logo_url }}"
+      },
+      "email": "{{ site.author.email }}",
+      "description": {{ site.description | strip_newlines | strip | jsonify }},
+      "sameAs": [
+        "https://github.com/smaht-ai/smahtai.github.io"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site_url }}/#website",
+      "url": "{{ site_url }}",
+      "name": "Smaht.AI",
+      "description": {{ site.description | strip_newlines | strip | jsonify }},
+      "publisher": { "@id": "{{ site_url }}/#organization" }
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "SiteNavigationElement",
+      "position": 1,
+      "name": "Events",
+      "url": "{{ site_url }}/events/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 2,
+      "name": "Talks",
+      "url": "{{ site_url }}/talks/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 3,
+      "name": "Blog",
+      "url": "{{ site_url }}/blog/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 4,
+      "name": "Technology",
+      "url": "{{ site_url }}/technology/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 5,
+      "name": "About",
+      "url": "{{ site_url }}/about/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 6,
+      "name": "Contact",
+      "url": "{{ site_url }}/contact/"
+    }
+  ]
+}
+</script>
+
+{% if page.layout == 'post' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | default: site.description | strip_newlines | jsonify }},
+  "image": "{{ site_url }}{{ page.image | default: '/assets/images/og-default.png' }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Person",
+    "name": {{ page.author | default: site.author.name | jsonify }}
+  },
+  "publisher": { "@id": "{{ site_url }}/#organization" },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site_url }}{{ page.url }}"
+  }
+}
+</script>
+{% endif %}
