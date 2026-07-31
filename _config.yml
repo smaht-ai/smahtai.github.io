@@ -10,6 +10,10 @@ permalink: pretty
 baseurl: ""
 url: "https://smaht.ai"
 
+# Site logo (header mark derived from Boston skyline hero art)
+logo: /assets/images/smaht-logo_40.png
+logo_2x: /assets/images/smaht-logo_80.png
+
 # Membership application (Google Form)
 apply_url: "https://docs.google.com/forms/d/e/1FAIpQLSeWEKRhzM3_EvMi9Q-d8oF037vaWngHvg6iT0ZuIcxlQtlWnA/viewform"
 
