@@ -8,7 +8,7 @@ categories: [ai, programming, engineering, product]
 description: "How DocRouter's Document Agent was built: a tool-calling AI with 25 tools, human-in-the-loop approval, and an agent loop that cuts document config time by 90%."
 ---
 
-The **Document Agent** is the chat on the document page in DocRouter: you talk to an AI in the context of a single document to create or edit [schemas](/docs/schemas/), [prompts](/docs/prompts/), and [tags](/docs/tags/), run extraction, and tweak results. This post explains why we built it and how we created it—the architecture and the decisions that shaped it.
+The **Document Agent** is the chat on the document page in DocRouter: you talk to an AI in the context of a single document to create or edit [schemas](https://docrouter.ai/docs/schemas/), [prompts](https://docrouter.ai/docs/prompts/), and [tags](https://docrouter.ai/docs/tags/), run extraction, and tweak results. This post explains why we built it and how we created it—the architecture and the decisions that shaped it.
 
 ![Document Agent](/assets/images/document_agent.png)
 
@@ -222,4 +222,4 @@ The Document Agent is a tool-calling LLM with:
 
 Splitting read-only and read-write tools keeps approval predictable; one round per approve keeps the user in control; message sanitization keeps thread reloads valid; and working state keeps “what we just created” visible to the agent without extra round-trips. If you’re building something similar—an in-context agent that can read and write—this architecture is a solid starting point.
 
-To use the Document Agent, open any document in [DocRouter](https://app.docrouter.ai) and open the Chat / Agent tab. For API details, see [Document Agent](/docs/document-agent/) in the docs.
+To use the Document Agent, open any document in [DocRouter](https://app.docrouter.ai) and open the Chat / Agent tab. For API details, see [Document Agent](https://docrouter.ai/docs/document-agent/) in the docs.

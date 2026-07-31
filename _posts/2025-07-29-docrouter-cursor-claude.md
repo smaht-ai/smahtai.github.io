@@ -52,7 +52,7 @@ I'm a fan of the simplest tool for the job. DocRouter.AI stores documents, LLM p
 
 **Schemas:** LLMs can output free-form or structured JSON. Providers support JSON schemas for precise LLM output. For docs, we classify types (e.g., via LLM prompt) then extract a specific schema—like date, patient name, DOB, address, diagnostics, doctor details in a medical prescription.
 
-DocRouter.AI lets users configure extraction [schemas](/docs/schemas/) for all doc types.
+DocRouter.AI lets users configure extraction [schemas](https://docrouter.ai/docs/schemas/) for all doc types.
 
 **Web Forms:** Schemas are too abstract for end users accustomed to ERPs (e.g., Epic for EHR, Salesforce for CRM). End users are instead familiar with entering data into web forms tailored to their process.
 

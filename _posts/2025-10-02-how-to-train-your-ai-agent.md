@@ -12,7 +12,7 @@ Developing an AI agent comes down to a number of intertwined yet distinct challe
 1. Create the __runtime infrastructure__ for the agent itself
 2. Add __tools__ for the task
 3. __Planning__: Making agent tackle the __specific problem__ you're aiming to solve
-4. Create a [__knowledge base__](/docs/knowledge-bases/) the agent can use to inform its execution steps
+4. Create a [__knowledge base__](https://docrouter.ai/docs/knowledge-bases/) the agent can use to inform its execution steps
 5. Set up an __evaluation infrastructure__ to track progress and catch agent mistakes
 6. __Integrate__ the agent into the larger application
 
@@ -46,7 +46,7 @@ Custom AI Agents, though, don't have all necessary knowledge baked into their LL
 
 For example - one of our customer companies develops a lab information management system that uses a scripting language to define web forms. The forms are used to manage lab processes in Biotech, Food Manufacturing, or Forensics. The AI Agent we developed employs an __external knowledge base__  to provide full documentation and examples for the scripting language. The generalist LLMs, while trained on __Python__, __Typescript__ and other programming languages, would not have baked-in information about the custom scripting language for web forms.
 
-Custom AI agents need to implement their own __external knowledge base__ and __problem-solving tools__. These are both integrated into the Agent using an [__MCP Server__](/docs/mcp/).
+Custom AI agents need to implement their own __external knowledge base__ and __problem-solving tools__. These are both integrated into the Agent using an [__MCP Server__](https://docrouter.ai/docs/mcp/).
 
 ![Extending Claude Code](/assets/images/ai_agent_extending_claude_code.png)
 

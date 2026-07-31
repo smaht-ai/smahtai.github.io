@@ -82,7 +82,7 @@ Stripe integration is, thus, an essential ingredient in making this kind of prog
 
 When you are starting, the best pricing is a simple one that your customer understands - especially for self-onboaded customers.
 
-For DocRouter, we want users to [start free, upgrade to plans](/pricing), and be able to buy extra credits without friction. Here's how we did it:
+For DocRouter, we want users to [start free, upgrade to plans](https://docrouter.ai/pricing/), and be able to buy extra credits without friction. Here's how we did it:
 
 ![DocRouter Pricing Plans](/assets/images/docrouter_pricing.png)
 
