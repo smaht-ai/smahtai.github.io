@@ -15,9 +15,18 @@ apply_url: "https://docs.google.com/forms/d/e/1FAIpQLSeWEKRhzM3_EvMi9Q-d8oF037va
 
 # Recommended Greater Boston event calendars
 event_calendars:
-  startup_boston: "https://www.startupbos.org/directory/events"
-  aicamp_boston: "https://www.aicamp.ai/event/eventsquery?city=US-Boston"
-  ai_blueprint_ma: "https://ai-blueprint-ma.com/events"
+  - name: "Startup Boston"
+    url: "https://www.startupbos.org/directory/events"
+    logo: "/assets/images/events/startup-boston.png"
+    description: "Startup events, grants, pitches, and deadlines across New England"
+  - name: "AI Camp Boston"
+    url: "https://www.aicamp.ai/event/eventsquery?city=US-Boston"
+    logo: "/assets/images/events/ai-camp-icon.png"
+    description: "AI meetups and workshops in US-Boston"
+  - name: "AI Blueprint for MA"
+    url: "https://ai-blueprint-ma.com/events"
+    logo: "/assets/images/events/ai-blueprint-ma.jpg"
+    description: "In-person AI events calendar for Boston"
 
 # Minima date format
 # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
