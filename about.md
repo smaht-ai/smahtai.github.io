@@ -18,7 +18,7 @@ permalink: /about/
     </p>
 
     <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-      Membership is free and selective. We’re an exclusive community for highly efficient builders and operators. If that sounds like you, <a href="https://docs.google.com/forms/d/e/1FAIpQLSeWEKRhzM3_EvMi9Q-d8oF037vaWngHvg6iT0ZuIcxlQtlWnA/viewform" class="text-blue-600 hover:text-blue-800 font-medium">apply to be a member</a>.
+      Membership is free and selective. We’re an exclusive community for highly efficient builders and operators. If that sounds like you, <a href="{{ site.apply_url }}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium">apply to be a member</a>.
     </p>
 
     <h3 class="text-xl font-semibold text-gray-900 mb-3">What we believe</h3>

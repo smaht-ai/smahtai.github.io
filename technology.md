@@ -456,8 +456,8 @@ permalink: /technology/
                 Partner with Smaht AI's experts to automate what slows you down. From document workflows to AI integrations, we'll tailor our stack to your needs.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/contact/" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold border-2 border-white hover:bg-white hover:bg-opacity-10 transition-all duration-200">Schedule a Demo</a>
-                <a href="/contact/" class="border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:bg-opacity-10 transition-all duration-200">Learn More</a>
+                <a href="{{ site.apply_url }}" target="_blank" rel="noopener noreferrer" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold border-2 border-white hover:bg-white hover:bg-opacity-10 transition-all duration-200">Apply to be a member</a>
+                <a href="{{ '/contact/' | relative_url }}" class="border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:bg-opacity-10 transition-all duration-200">Contact us</a>
             </div>
         </section>
     </main>

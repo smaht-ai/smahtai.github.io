@@ -10,6 +10,9 @@ permalink: pretty
 baseurl: ""
 url: "https://smaht.ai"
 
+# Membership application (Google Form)
+apply_url: "https://docs.google.com/forms/d/e/1FAIpQLSeWEKRhzM3_EvMi9Q-d8oF037vaWngHvg6iT0ZuIcxlQtlWnA/viewform"
+
 # Minima date format
 # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
 minima:
@@ -80,9 +83,10 @@ header_pages:
         url: "/contact"
       - title: "How to Contribute"
         url: "/how-to-contribute"
-  - title: "Get Started"
-    url: "/contact"
+  - title: "Apply"
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSeWEKRhzM3_EvMi9Q-d8oF037vaWngHvg6iT0ZuIcxlQtlWnA/viewform"
     button_style: "solid"
+    external: true
 
 # Footer sitemap - simplified navigation for footer display
 site_map:

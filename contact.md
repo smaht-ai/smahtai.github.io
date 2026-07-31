@@ -71,7 +71,7 @@ permalink: /contact/
 
   <div class="bg-blue-50 rounded-lg p-6 text-center">
     <p class="text-gray-700 mb-4">Interested in joining the community?</p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeWEKRhzM3_EvMi9Q-d8oF037vaWngHvg6iT0ZuIcxlQtlWnA/viewform" class="inline-block bg-gray-800 hover:bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-200">
+    <a href="{{ site.apply_url }}" target="_blank" rel="noopener noreferrer" class="inline-block bg-gray-800 hover:bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-200">
       Apply to be a member
     </a>
   </div>
