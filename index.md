@@ -4,38 +4,44 @@ title: Smaht.AI - AI Engineers & Entrepreneurs"
 ---
 
 <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-16">
-  <!-- Hero Section - Two Column Layout -->
-  <header class="mb-12 md:mb-16">
-    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-stretch">
-      <!-- Left Column - Text Content -->
-      <div class="space-y-6 flex flex-col">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-          AI Engineers &amp; Entrepreneurs
-        </h1>
-        <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
-          A Boston-founded but global group of people who love building products and building companies.
-        </p>
-        <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-          For AI Engineers and Entrepreneurs who like taking ideas from 0 to 1 using cutting-edge tools and strategies to unlock value for people.
-        </p>
-        <div class="pt-2">
-          <a href="{{ site.apply_url }}" target="_blank" rel="noopener noreferrer" class="inline-block bg-gray-800 hover:bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold text-base md:text-lg transition-colors duration-200">
-            Think you're Smaht? Apply to be a member
-          </a>
-        </div>
-        <p class="text-base md:text-lg text-gray-700 leading-relaxed pt-2">
-          No cost to join. This is an exclusive community for highly efficient builders and operators, skilled in Generative AI, Data Engineering, Machine Learning and Entrepreneurship
-        </p>
-      </div>
-      
-      <!-- Right Column - Image -->
-      <div class="h-full w-full overflow-hidden">
-        <img src="{{ '/assets/images/smaht-skyline2.png' | relative_url }}" 
-             alt="Smaht.ai Cityscape" 
-             style="width: 100%; height: 100%; object-fit: fill;">
-      </div>
+  <!-- Hero: skyline floats beside lead copy on md+; membership note clears below -->
+  <header class="mb-8 md:mb-16">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-5 md:mb-6">
+      AI Engineers &amp; Entrepreneurs
+    </h1>
+
+    <figure class="hidden md:block md:float-right md:w-[min(42%,22rem)] lg:w-[min(44%,26rem)] md:ml-8 lg:ml-12 mb-6 md:mb-4 md:-mt-2">
+      <img src="{{ '/assets/images/smaht-skyline2.png' | relative_url }}"
+           alt="Smaht.ai Cityscape"
+           width="1200"
+           height="1200"
+           class="w-full h-auto block aspect-square object-contain"
+           loading="eager">
+    </figure>
+
+    <p class="text-lg md:text-xl text-gray-700 leading-relaxed mb-4">
+      A Boston-founded but global group of people who love building products and building companies.
+    </p>
+    <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
+      For AI Engineers and Entrepreneurs who like taking ideas from 0 to 1 using cutting-edge tools and strategies to unlock value for people.
+    </p>
+    <div class="mb-6">
+      {% include apply-cta.html text="Think you're Smaht? Apply to be a member" class="text-base md:text-lg" %}
     </div>
+    <p class="text-base md:text-lg text-gray-600 leading-relaxed clear-both pt-1">
+      No cost to join. This is an exclusive community for highly efficient builders and operators, skilled in Generative AI, Data Engineering, Machine Learning and Entrepreneurship.
+    </p>
   </header>
+
+  <!-- Mobile-only skyline, just above consultants -->
+  <figure class="md:hidden w-36 mx-auto mb-8">
+    <img src="{{ '/assets/images/smaht-skyline2.png' | relative_url }}"
+         alt="Smaht.ai Cityscape"
+         width="1200"
+         height="1200"
+         class="w-full h-auto block aspect-square object-contain"
+         loading="eager">
+  </figure>
 
   <main class="space-y-12 md:space-y-16">
     <!-- Consultants Section -->
@@ -104,14 +110,14 @@ title: Smaht.AI - AI Engineers & Entrepreneurs"
     </section>
 
     <!-- Empowering Section -->
-    <section class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-lg p-6 md:p-10 text-white">
+    <section class="community-band rounded-xl p-6 md:p-10">
       <h2 class="text-2xl md:text-3xl font-semibold mb-4">
         Empowering AI Engineers and Entrepreneurs to Build and Innovate
       </h2>
-      <p class="text-base md:text-lg text-blue-50 mb-4 max-w-3xl">
+      <p class="text-base md:text-lg mb-4 max-w-3xl opacity-90">
         At Smaht.ai, we believe in the power of collaboration and the potential of cutting-edge technology to drive meaningful change.
       </p>
-      <p class="text-base md:text-lg text-blue-50 max-w-3xl">
+      <p class="text-base md:text-lg max-w-3xl opacity-90">
         Our community is designed for AI engineers and entrepreneurs who are passionate about transforming ideas into reality.
       </p>
     </section>
@@ -233,7 +239,7 @@ title: Smaht.AI - AI Engineers & Entrepreneurs"
     </section>
 
     <!-- Contact Section -->
-    <section class="bg-blue-50 rounded-xl shadow-lg p-6 md:p-8">
+    <section class="community-panel p-6 md:p-8">
       <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
         Contact Us
       </h2>

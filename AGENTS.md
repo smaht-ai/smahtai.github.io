@@ -28,23 +28,27 @@ The Analytiq Pages Starter is a Jekyll-based static site generator template that
 /
 ├── _config.yml              # Site configuration (YAML)
 ├── _includes/               # Site-specific includes (overrides theme)
-│   └── docs-widget.html    # Custom docs navigation
+│   ├── apply-cta.html       # Membership apply CTA
+│   ├── custom-head.html     # Favicon, SEO/JSON-LD, analytics
+│   ├── json-ld.html         # Structured data
+│   └── talk-card.html       # Talk listing card
 ├── _posts/                  # Blog posts collection
-├── docs/                    # Documentation pages
 ├── assets/                  # Static assets
-│   ├── excalidraw/         # Excalidraw diagram files
-│   └── images/             # Image files
-│       └── blog/           # Blog post splash images
-├── .github/workflows/      # GitHub Actions workflows (optional)
-├── *.md                     # Root-level pages (index, about, etc.)
+│   ├── css/community.css    # Site design tokens and shared styles
+│   ├── excalidraw/          # Excalidraw diagram files
+│   └── images/              # Image files (logo, events, blog)
+├── .github/workflows/       # GitHub Actions workflows
+├── *.md                     # Root-level pages (index, about, events, talks, etc.)
 ├── 404.html                 # Custom 404 error page
-├── excalidraw.html         # Excalidraw editor page
-├── favicon.ico             # Site favicon
+├── excalidraw.html          # Excalidraw editor page
+├── favicon.ico              # Site favicon
 ├── Gemfile                  # Ruby dependencies
-├── Gemfile.lock            # Locked dependency versions
+├── Gemfile.lock             # Locked dependency versions
 ├── LICENSE                  # License file
-├── Makefile                # Build automation (optional)
-├── README.md               # Project documentation
+├── Makefile                 # Build automation
+├── README.md                # Project documentation
+├── AGENTS.md                # Agent guidance (this file; excluded from Jekyll)
+└── scripts/                 # Local check scripts
 ```
 
 ## Important Files
@@ -60,19 +64,16 @@ The Analytiq Pages Starter is a Jekyll-based static site generator template that
 
 ### Content Files
 
-- **Root `.md` files**: Main site pages (index.md, about.md, etc.)
+- **Root `.md` files**: Main site pages (index.md, about.md, events.md, talks.md, technology.md, contact.md, etc.)
   - Use front matter to specify layout and metadata
-  - Markdown content below front matter
-
-- **`docs/*.md`**: Documentation pages
-  - Use `layout: docs` for sidebar navigation
-  - Add links to `_includes/docs-widget.html` for navigation
+  - Markdown/HTML content below front matter
 
 - **`_posts/YYYY-MM-DD-title.md`**: Blog posts
   - Must follow date-prefixed naming convention
   - Use `layout: post`
-  - Categories are space-separated in front matter
+  - Categories are space-separated or YAML arrays in front matter
 
+There is **no** `docs/` collection on this site. Product documentation lives on external sites (e.g. DocRouter) when needed.
 ### Theme Integration
 
 - **Theme**: Specified in `_config.yml` as `theme: analytiq-pages-theme`
@@ -112,12 +113,17 @@ The Analytiq Pages Starter is a Jekyll-based static site generator template that
 
 **Important**: Blog posts must use **today's date** in both the filename and the `date` field in front matter. Do not use future dates or past dates - always use the current date when creating a new blog post.
 
+### Membership apply CTA
 
-### Adding Documentation
+Use the shared include instead of hardcoding the Google Form URL:
 
-1. Create `.md` file in `docs/` directory
-2. Use `layout: docs` in front matter
-3. Add link to `_includes/docs-widget.html` navigation
+```liquid
+&#123;% include apply-cta.html %&#125;
+&#123;% include apply-cta.html style="band" title="Join Smaht.AI" description="Selective free membership for AI builders." %&#125;
+&#123;% include apply-cta.html style="link" text="apply to be a member" %&#125;
+```
+
+The form URL lives in `_config.yml` as `apply_url`.
 
 ### Embedding Excalidraw Diagrams
 
@@ -156,7 +162,8 @@ SVG diagrams are ideal for:
 
 **File Organization**:
 - Blog splash images: `/assets/images/blog/*.svg`
-- Documentation diagrams: `/assets/images/docs/*.svg`
+- Event calendar logos: `/assets/images/events/*`
+- Brand logo: `/assets/images/smaht-logo*`
 - General illustrations: `/assets/images/*.svg`
 
 **Creating SVG Splash Images**:
@@ -336,10 +343,8 @@ Visit http://localhost:4000
 
 ## Documentation References
 
-- [Getting Started](/docs/getting-started/) - Setup and initial customization
-- [User Guide](/docs/user-guide/) - Content management and customization
-- [Architecture](/docs/architecture/) - Technical architecture details
-- [API Reference](/docs/api-reference/) - Configuration and template APIs
+- Theme and Jekyll docs: see Analytiq Pages Theme README and [Jekyll Documentation](https://jekyllrb.com/docs/)
+- Site check: `python3.11 scripts/check_site.py`
 
 ## Quick Reference
 
@@ -347,25 +352,21 @@ Visit http://localhost:4000
 ```
 project-root/
 ├── _config.yml              # Site configuration (YAML)
-├── _includes/               # Site-specific includes (overrides theme)
-│   └── docs-widget.html    # Custom docs navigation
-├── _posts/                  # Blog posts collection
-├── docs/                    # Documentation pages
-├── assets/                  # Static assets
-│   ├── excalidraw/         # Excalidraw diagram files
-│   └── images/             # Image files
-│       └── blog/           # Blog post splash images
-├── .github/workflows/      # GitHub Actions workflows (optional)
-├── *.md                     # Root-level pages (index, about, etc.)
-├── 404.html                 # Custom 404 error page
-├── excalidraw.html         # Excalidraw editor page
-├── favicon.ico             # Site favicon
-├── Gemfile                  # Ruby dependencies
-├── Gemfile.lock            # Locked dependency versions
-├── LICENSE                  # License file
-├── Makefile                # Build automation (optional)
-├── README.md               # Project documentation
-└── SVG_STYLING_GUIDE.md   # SVG styling reference (optional)
+├── _includes/               # Site-specific includes
+│   ├── apply-cta.html
+│   ├── custom-head.html
+│   ├── json-ld.html
+│   └── talk-card.html
+├── _posts/                  # Blog posts
+├── assets/
+│   ├── css/community.css    # Design tokens
+│   ├── excalidraw/
+│   └── images/
+├── events.md / talks.md / technology.md / …
+├── favicon.ico
+├── Gemfile
+├── AGENTS.md
+└── scripts/check_site.py
 ```
 
 ### Essential Commands
@@ -373,6 +374,7 @@ project-root/
 bundle install              # Install dependencies
 bundle exec jekyll serve    # Start local development server
 # Visit http://localhost:4000
+python3.11 scripts/check_site.py
 ```
 
 ### Front Matter Templates
@@ -395,14 +397,6 @@ date: 2025-11-29 10:00:00 -0400
 categories: category1 category2
 author: "Author Name"
 image: /assets/images/blog/image.svg
----
-```
-
-**Documentation Page**:
-```yaml
----
-layout: docs
-title: "Documentation Title"
 ---
 ```
 

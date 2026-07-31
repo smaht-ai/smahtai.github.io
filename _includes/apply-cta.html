@@ -1,0 +1,47 @@
+{% comment %}
+  Membership apply CTA. Uses site.apply_url.
+
+  Parameters:
+    style       — "button" (default) | "band" | "link" | "on-band"
+    text        — CTA label
+    title       — band heading (style=band)
+    description — band body (style=band)
+    class       — extra classes on the root/anchor
+    secondary_href / secondary_text — optional second button (band only)
+{% endcomment %}
+{% assign cta_style = include.style | default: "button" %}
+{% assign cta_text = include.text | default: "Apply to be a member" %}
+
+{% if cta_style == "band" %}
+<section class="community-band not-prose rounded-xl p-8 text-center {{ include.class }}">
+  <h2 class="text-2xl md:text-3xl font-bold mb-4">{{ include.title | default: "Join Smaht.AI" }}</h2>
+  {% if include.description %}
+  <p class="text-lg mb-8 max-w-2xl mx-auto" style="opacity:0.9">{{ include.description }}</p>
+  {% endif %}
+  <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <a href="{{ site.apply_url }}"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="community-btn-on-band">{{ cta_text }}</a>
+    {% if include.secondary_href %}
+    <a href="{{ include.secondary_href | relative_url }}"
+       class="community-btn-on-band-outline">{{ include.secondary_text | default: "Learn more" }}</a>
+    {% endif %}
+  </div>
+</section>
+{% elsif cta_style == "link" %}
+<a href="{{ site.apply_url }}"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="community-link {{ include.class }}">{{ cta_text }}</a>
+{% elsif cta_style == "on-band" %}
+<a href="{{ site.apply_url }}"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="community-btn-on-band {{ include.class }}">{{ cta_text }}</a>
+{% else %}
+<a href="{{ site.apply_url }}"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="community-btn-primary {{ include.class }}">{{ cta_text }}</a>
+{% endif %}

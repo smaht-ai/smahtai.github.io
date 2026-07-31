@@ -1,0 +1,253 @@
+/* Smaht.ai community brand — DocRouter navy/blue palette */
+
+:root {
+  --smaht-navy: #1a2b4c;
+  --smaht-navy-dark: #0f1d33;
+  --smaht-blue: #007bff;
+  --smaht-blue-dark: #0056b3;
+  --smaht-slate: #64748b;
+  --smaht-border: #e2e8f0;
+  --smaht-bg: #f8fafc;
+  --smaht-bg-accent: #f0f7ff;
+  --smaht-white: #ffffff;
+  --smaht-band-muted: #cbd5e1;
+}
+
+.community-hero {
+  background:
+    radial-gradient(ellipse 70% 50% at 90% 20%, rgba(0, 123, 255, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(26, 43, 76, 0.04) 0%, transparent 50%),
+    linear-gradient(180deg, var(--smaht-bg-accent) 0%, var(--smaht-white) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.community-band {
+  background-color: var(--smaht-navy);
+  color: var(--smaht-white);
+}
+
+/*
+  Theme .prose forces dark headings and blue links. Those rules often load after
+  this file, so band text/buttons need !important to stay readable on navy.
+*/
+.community-band :is(h1, h2, h3, h4, h5, h6, strong),
+.prose .community-band :is(h1, h2, h3, h4, h5, h6, strong) {
+  color: #ffffff !important;
+}
+
+.community-band :is(p, li, em),
+.prose .community-band :is(p, li, em) {
+  color: var(--smaht-band-muted) !important;
+}
+
+.community-band a:not([class*="community-btn"]),
+.prose .community-band a:not([class*="community-btn"]) {
+  color: #93c5fd !important;
+  text-decoration: underline;
+}
+
+.community-band a:not([class*="community-btn"]):hover,
+.prose .community-band a:not([class*="community-btn"]):hover {
+  color: #ffffff !important;
+}
+
+.community-band a.community-btn-on-band,
+.prose .community-band a.community-btn-on-band {
+  color: var(--smaht-navy) !important;
+  background-color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.community-band a.community-btn-on-band:hover,
+.prose .community-band a.community-btn-on-band:hover {
+  color: #ffffff !important;
+  background-color: transparent !important;
+}
+
+.community-band a.community-btn-on-band-outline,
+.prose .community-band a.community-btn-on-band-outline {
+  color: #ffffff !important;
+  background-color: transparent !important;
+  text-decoration: none !important;
+}
+
+.community-band a.community-btn-on-band-outline:hover,
+.prose .community-band a.community-btn-on-band-outline:hover {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.community-panel {
+  background: linear-gradient(180deg, var(--smaht-bg-accent) 0%, var(--smaht-bg) 100%);
+  border: 1px solid var(--smaht-border);
+  border-radius: 0.75rem;
+}
+
+.community-card {
+  background: var(--smaht-white);
+  border: 1px solid var(--smaht-border);
+  border-radius: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.community-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(26, 43, 76, 0.06);
+}
+
+.community-section-label {
+  color: var(--smaht-blue);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.community-link,
+.prose a.community-link {
+  color: var(--smaht-blue) !important;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.community-link:hover,
+.prose a.community-link:hover {
+  color: var(--smaht-blue-dark) !important;
+  text-decoration: underline;
+}
+
+.community-btn-primary,
+.prose a.community-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--smaht-navy) !important;
+  color: #ffffff !important;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: background-color 0.2s ease;
+}
+
+.community-btn-primary:hover,
+.prose a.community-btn-primary:hover {
+  background-color: var(--smaht-navy-dark) !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.community-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 1px solid var(--smaht-navy);
+  color: var(--smaht-navy);
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.community-btn-secondary:hover {
+  background-color: var(--smaht-bg);
+  color: var(--smaht-navy);
+  text-decoration: none;
+}
+
+.community-btn-on-band {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff !important;
+  color: var(--smaht-navy) !important;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: 2px solid #ffffff;
+  text-decoration: none !important;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.community-btn-on-band:hover {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.community-btn-on-band-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: 2px solid #ffffff;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.community-btn-on-band-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.community-accent {
+  color: var(--smaht-blue);
+}
+
+/*
+  Theme header hardcodes Tailwind blue-600/700 for solid CTAs and blue-600/50
+  for dropdown hovers. Remap to DocRouter navy + blue.
+*/
+header a.bg-blue-600,
+header a.bg-blue-600:hover,
+header a.bg-blue-600:focus,
+header a.bg-blue-600:active,
+#mobile-menu a.bg-blue-600,
+#mobile-menu a.bg-blue-600:hover,
+#mobile-menu a.bg-blue-600:focus,
+#mobile-menu a.bg-blue-600:active {
+  background-color: var(--smaht-navy) !important;
+  color: #ffffff !important;
+}
+
+header a.bg-blue-600:hover,
+header a.hover\:bg-blue-700:hover,
+#mobile-menu a.active\:bg-blue-700:active,
+#mobile-menu a.focus\:bg-blue-700:focus {
+  background-color: var(--smaht-navy-dark) !important;
+}
+
+header a:hover,
+header button:hover,
+header .dropdown-toggle:hover,
+header .dropdown-menu a:hover,
+#mobile-menu a:not(.bg-blue-600):hover,
+#mobile-menu a:not(.bg-blue-600):active,
+#mobile-menu a:not(.bg-blue-600):focus,
+#mobile-menu button:hover,
+#mobile-menu button:active,
+#mobile-menu button:focus {
+  color: var(--smaht-blue);
+}
+
+#mobile-menu a:not(.bg-blue-600):active,
+#mobile-menu a:not(.bg-blue-600):focus,
+#mobile-menu button:active,
+#mobile-menu button:focus,
+header .dropdown-menu a:hover,
+header .dropdown-menu a:focus {
+  background-color: var(--smaht-bg-accent);
+}
+
+header a[rel="author"]:hover {
+  color: var(--smaht-blue) !important;
+}
+

@@ -12,7 +12,7 @@ permalink: /contact/
     </p>
   </div>
 
-  <div class="bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg shadow-lg p-8 text-white mb-8">
+  <div class="community-band not-prose rounded-lg p-8 mb-8">
     <span class="block text-left">
       <span class="block text-2xl font-semibold mb-6">Get in Touch</span>
       <span class="block space-y-4">
@@ -24,7 +24,7 @@ permalink: /contact/
           </span>
           <span class="block">
             <span class="block font-medium mb-1">Email</span>
-            <a href="mailto:info@smaht.ai" class="text-blue-100 hover:text-white">info@smaht.ai</a>
+            <a href="mailto:info@smaht.ai" class="opacity-90 hover:opacity-100 underline">info@smaht.ai</a>
           </span>
         </span>
         <span class="flex items-start">
@@ -36,7 +36,7 @@ permalink: /contact/
           </span>
           <span class="block">
             <span class="block font-medium mb-1">Location</span>
-            <span class="text-blue-100">Boston, MA</span>
+            <span class="opacity-90">Boston, MA</span>
           </span>
         </span>
         <span class="flex items-start">
@@ -47,16 +47,16 @@ permalink: /contact/
           </span>
           <span class="block">
             <span class="block font-medium mb-1">Social</span>
-            <span class="text-blue-100 flex items-center gap-2 flex-wrap">
+            <span class="opacity-90 flex items-center gap-2 flex-wrap">
               <span>DM founder Sean Kruzel on</span>
-              <a href="https://www.linkedin.com/in/seankruzel" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-blue-100 hover:text-white" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/seankruzel" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 opacity-90 hover:opacity-100" aria-label="LinkedIn">
                 <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
                   <use href="{{ '/assets/minima-social-icons.svg' | relative_url }}#linkedin"/>
                 </svg>
                 <span class="underline">LinkedIn</span>
               </a>
               <span>or</span>
-              <a href="https://twitter.com/seankruzel" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-blue-100 hover:text-white" aria-label="Twitter (X)">
+              <a href="https://twitter.com/seankruzel" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 opacity-90 hover:opacity-100" aria-label="Twitter (X)">
                 <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
                   <use href="{{ '/assets/minima-social-icons.svg' | relative_url }}#twitter"/>
                 </svg>
@@ -69,12 +69,11 @@ permalink: /contact/
     </span>
   </div>
 
-  <div class="bg-blue-50 rounded-lg p-6 text-center">
-    <p class="text-gray-700 mb-4">Interested in joining the community?</p>
-    <a href="{{ site.apply_url }}" target="_blank" rel="noopener noreferrer" class="inline-block bg-gray-800 hover:bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-200">
-      Apply to be a member
-    </a>
-  </div>
+  {% include apply-cta.html
+     style="band"
+     title="Interested in joining the community?"
+     description="Membership is free and selective — for highly efficient AI builders and operators."
+     class="mb-0" %}
 
   <p class="text-xs text-gray-500 mt-8 text-center">
     © 2024 ClosedLoop Technologies, LLC — All Rights Reserved

@@ -20,9 +20,9 @@ permalink: /events/
       </h2>
       <p class="text-gray-600">
         Coming soon —
-        <a href="{{ site.apply_url }}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium">apply to join</a>
+        {% include apply-cta.html style="link" text="apply to join" %}
         for Slack updates, or browse
-        <a href="{{ '/talks/' | relative_url }}" class="text-blue-600 hover:text-blue-800 font-medium">member talks</a>.
+        <a href="{{ '/talks/' | relative_url }}" class="community-link">member talks</a>.
       </p>
     </section>
 

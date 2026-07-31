@@ -6,16 +6,16 @@ permalink: /technology/
 <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-4 md:py-12">
     <main>
         <!-- Hero/Introduction Section: Set the Story Hook -->
-        <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg shadow-lg p-8 mb-12 text-center">
+        <section class="community-band rounded-lg p-8 mb-12 text-center">
             <h1 class="text-4xl font-bold mb-4">Our Technology Story: Building AI-Powered Solutions</h1>
-            <p class="text-xl max-w-3xl mx-auto mb-6">
+            <p class="text-xl max-w-3xl mx-auto mb-6 opacity-90">
                 At Smaht.ai, we don't just use technology—we orchestrate it to automate workflows, extract insights, and drive efficiency across industries like finance, healthcare, and logistics. Let's walk through how we do it.
             </p>
-            <a href="#foundation" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold">Explore Our Stack</a>
+            <a href="#foundation" class="community-btn-on-band">Explore Our Stack</a>
         </section>
 
         <!-- Section 1: The Foundation - Cloud Platforms (Start of the Story) -->
-        <section id="foundation" class="bg-gradient-to-br from-white to-blue-50 rounded-lg shadow-lg p-8 mb-12">
+        <section id="foundation" class="community-panel p-8 mb-12">
             <h2 class="text-3xl font-semibold text-gray-900 mb-6 text-center">The Foundation: Scalable Cloud Infrastructure</h2>
             <p class="text-lg text-gray-600 mb-8 max-w-3xl mx-auto text-center">
                 Every great solution starts with a solid base. We leverage multi-cloud platforms to ensure your systems are reliable, scalable, and cost-effective—handling everything from insurance claims to supply chain audits without downtime.
@@ -362,27 +362,27 @@ permalink: /technology/
                     </div>
                 </div>
             </div>
-            <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg p-6">
+            <div class="community-band rounded-lg p-6">
                 <h3 class="text-2xl font-medium mb-4 text-center">Plan, Build, Operate: Our End-to-End Approach</h3>
                 <div class="grid md:grid-cols-2 gap-6">
                     <!-- Planning & AI Solutions Column -->
                     <div>
                         <h4 class="text-xl font-medium mb-4">🎯 Plan & Automate</h4>
-                        <ul class="space-y-3 text-blue-100">
+                        <ul class="space-y-3 opacity-90">
                             <li class="flex items-start space-x-2">
-                                <span class="text-white font-bold">•</span>
+                                <span class="font-bold">•</span>
                                 <span><strong>AI workflow automation:</strong> Streamline document processing for insurance claims and healthcare records</span>
                             </li>
                             <li class="flex items-start space-x-2">
-                                <span class="text-white font-bold">•</span>
+                                <span class="font-bold">•</span>
                                 <span><strong>ERP integration:</strong> Seamless connections to Epic, Brightree, HDMS for automated order processing</span>
                             </li>
                             <li class="flex items-start space-x-2">
-                                <span class="text-white font-bold">•</span>
+                                <span class="font-bold">•</span>
                                 <span><strong>Intelligent extraction:</strong> Transform unstructured PDFs into structured business data with 95%+ accuracy</span>
                             </li>
                             <li class="flex items-start space-x-2">
-                                <span class="text-white font-bold">•</span>
+                                <span class="font-bold">•</span>
                                 <span><strong>Human-in-the-loop validation:</strong> Ensure compliance in regulated industries while maintaining efficiency</span>
                             </li>
                         </ul>
@@ -391,21 +391,21 @@ permalink: /technology/
                     <!-- Development & Operations Column -->
                     <div>
                         <h4 class="text-xl font-medium mb-4">⚙️ Build & Operate</h4>
-                        <ul class="space-y-3 text-blue-100">
+                        <ul class="space-y-3 opacity-90">
                             <li class="flex items-start space-x-2">
-                                <span class="text-white font-bold">•</span>
+                                <span class="font-bold">•</span>
                                 <span><strong>Full-stack development:</strong> Custom React/Next.js UIs with FastAPI backends tailored to your workflows</span>
                             </li>
                             <li class="flex items-start space-x-2">
-                                <span class="text-white font-bold">•</span>
+                                <span class="font-bold">•</span>
                                 <span><strong>Cloud-native deployment:</strong> Scalable Kubernetes infrastructure that grows with your business demands</span>
                             </li>
                             <li class="flex items-start space-x-2">
-                                <span class="text-white font-bold">•</span>
+                                <span class="font-bold">•</span>
                                 <span><strong>MLOps & monitoring:</strong> Continuous model performance tracking with Prefect orchestration and MLFlow</span>
                             </li>
                             <li class="flex items-start space-x-2">
-                                <span class="text-white font-bold">•</span>
+                                <span class="font-bold">•</span>
                                 <span><strong>Security & compliance:</strong> HIPAA, SOC 2, and industry-specific frameworks built into every solution</span>
                             </li>
                         </ul>
@@ -415,7 +415,7 @@ permalink: /technology/
         </section>
 
         <!-- Section 4: The Safeguard - Security & Compliance (Resolution) -->
-        <section class="bg-gradient-to-br from-green-50 to-blue-50 rounded-lg p-8 mb-12">
+        <section class="community-panel p-8 mb-12">
             <h2 class="text-3xl font-semibold text-gray-900 mb-6 text-center">The Safeguard: Security and Compliance</h2>
             <p class="text-lg text-gray-600 mb-8 max-w-3xl mx-auto text-center">
                 Finally, we protect what matters. Our solutions meet the highest standards, ensuring trust in sensitive workflows like patient records or financial audits.
@@ -449,16 +449,12 @@ permalink: /technology/
             </div>
         </section>
 
-        <!-- CTA Section: Happy Ending/Call to Action -->
-        <section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg p-8 text-center">
-            <h2 class="text-3xl font-bold mb-4">Ready to Write Your Technology Story?</h2>
-            <p class="text-lg mb-8 max-w-2xl mx-auto">
-                Partner with Smaht AI's experts to automate what slows you down. From document workflows to AI integrations, we'll tailor our stack to your needs.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="{{ site.apply_url }}" target="_blank" rel="noopener noreferrer" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold border-2 border-white hover:bg-white hover:bg-opacity-10 transition-all duration-200">Apply to be a member</a>
-                <a href="{{ '/contact/' | relative_url }}" class="border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:bg-opacity-10 transition-all duration-200">Contact us</a>
-            </div>
-        </section>
+        <!-- CTA Section -->
+        {% include apply-cta.html
+           style="band"
+           title="Ready to join the community?"
+           description="Membership is free and selective. Learn how our members build with this stack — and ship with peers who move fast."
+           secondary_href="/contact/"
+           secondary_text="Contact us" %}
     </main>
 </div>
