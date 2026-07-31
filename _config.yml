@@ -56,26 +56,17 @@ minima:
 
 # Header navigation menu
 header_pages:
+  - title: "Events"
+    url: "/events"
+  - title: "Talks"
+    url: "/talks"
+  - title: "Blog"
+    url: "/blog"
   - title: "Resources"
     url: "#"
     children:
       - title: "Technology"
         url: "/technology"
-      - title: "Talks"
-        url: "/talks"
-  # - title: "Docs"
-  #   url: "#"
-  #   children:
-  #     - title: "Getting Started"
-  #       url: "/docs/getting-started"
-  #     - title: "User Guide"
-  #       url: "/docs/user-guide"
-  #     - title: "API Reference"
-  #       url: "/docs/api-reference"
-  #     - title: "Architecture"
-  #       url: "/docs/architecture"
-  - title: "Blog"
-    url: "/blog"
   - title: "Info"
     url: "#"
     children:
@@ -92,24 +83,16 @@ header_pages:
 
 # Footer sitemap - simplified navigation for footer display
 site_map:
+  - title: "Events"
+    url: "/events"
+  - title: "Talks"
+    url: "/talks"
+  - title: "Blog"
+    url: "/blog"
   - title: "Resources"
     links:
       - title: "Technology"
         url: "/technology"
-      - title: "Talks"
-        url: "/talks"
-  # - title: "Documentation"
-  #   links:
-  #     - title: "Getting Started"
-  #       url: "/docs/getting-started"
-  #     - title: "User Guide"
-  #       url: "/docs/user-guide"
-  #     - title: "API Reference"
-  #       url: "/docs/api-reference"
-  #     - title: "Architecture"
-  #       url: "/docs/architecture"
-  - title: "Blog"
-    url: "/blog"
   - title: "Info"
     links:
       - title: "About"
