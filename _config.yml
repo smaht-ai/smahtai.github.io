@@ -101,13 +101,16 @@ header_pages:
     external: true
 
 # Footer sitemap - simplified navigation for footer display
+# Note: theme footer only renders section.links (section.url alone is ignored)
 site_map:
-  - title: "Events"
-    url: "/events"
-  - title: "Talks"
-    url: "/talks"
-  - title: "Blog"
-    url: "/blog"
+  - title: "Explore"
+    links:
+      - title: "Events"
+        url: "/events"
+      - title: "Talks"
+        url: "/talks"
+      - title: "Blog"
+        url: "/blog"
   - title: "Resources"
     links:
       - title: "Technology"
