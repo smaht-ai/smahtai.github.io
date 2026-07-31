@@ -7,10 +7,10 @@ permalink: /about/
 <div class="bg-gradient-to-br from-white to-blue-50 rounded-lg shadow-lg p-8">
   <div class="max-w-4xl mx-auto">
 
-    <h2 class="text-3xl font-bold text-gray-900 mb-6">About Smaht.ai</h2>
+    <h2 class="text-3xl font-bold text-gray-900 mb-6">About Smaht.AI</h2>
 
     <p class="text-lg text-gray-700 mb-4 leading-relaxed">
-      Smaht.ai is a Boston-founded, global community of experienced AI engineers and entrepreneurs who love building products and companies.
+      Smaht.AI is a Boston-founded, global community of experienced AI engineers and entrepreneurs who love building products and companies.
     </p>
 
     <p class="text-lg text-gray-700 mb-4 leading-relaxed">
