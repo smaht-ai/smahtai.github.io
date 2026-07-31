@@ -1,4 +1,5 @@
 ---
+layout: member
 title: Vishnu Patel
 role: "Quantitative Finance Developer · BU Questrom MS"
 summary: "Builds robust quantitative models and AI-driven tools for financial markets and data-intensive applications."

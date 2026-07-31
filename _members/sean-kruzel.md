@@ -1,4 +1,5 @@
 ---
+layout: member
 title: Sean Kruzel
 role: "AI Engineer · Founder · Global Macro Hedge Fund Quant · Full Stack Developer"
 summary: "Builds production AI systems and products that bridge quantitative finance, software engineering, and business strategy."

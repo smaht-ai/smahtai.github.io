@@ -1,4 +1,5 @@
 ---
+layout: member
 title: Andrei Radulescu-Banu
 role: "Innovative Digital Health, Fintech, Robotics Solutions · Math PhD, MIT"
 summary: "Designs and ships intelligent systems across healthcare, finance, and robotics, with deep mathematical and engineering rigor."
