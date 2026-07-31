@@ -53,60 +53,40 @@ title: Smaht.AI - AI Engineers & Entrepreneurs"
         Learn more about a few of our members who help companies move fast with high‑leverage AI engineering and strategy.
       </p>
       <div class="grid gap-6 md:grid-cols-3">
-        <!-- Sean -->
-        <article class="border border-gray-100 rounded-lg p-5 bg-gray-50">
+        {% assign featured_people = site.members | sort: "order" %}
+        {% for member in featured_people %}
+        <a href="{{ member.url | relative_url }}"
+           class="border border-gray-100 rounded-lg p-5 bg-gray-50 block no-underline hover:no-underline hover:border-gray-300 transition-colors group">
+          {% if member.image %}
           <div class="mb-4 rounded-lg overflow-hidden bg-gray-100">
-            <img src="{{ '/assets/images/sean_smaht.png' | relative_url }}"
-                 alt="Sean Kruzel"
-                 class="w-full h-56 object-cover">
+            <img src="{{ member.image | relative_url }}"
+                 alt="{{ member.title | escape }}"
+                 class="w-full h-56 object-cover"
+                 loading="lazy">
           </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-1">Sean Kruzel</h3>
-          <p class="text-sm text-blue-700 font-medium mb-2">
-            AI Engineer · Founder · Global Macro Hedge Fund Quant · Full Stack Developer
+          {% endif %}
+          <h3 class="text-lg font-semibold text-gray-900 mb-1 group-hover:text-[var(--smaht-blue)] transition-colors">
+            {{ member.title | escape }}
+          </h3>
+          {% if member.role %}
+          <p class="text-sm text-[var(--smaht-blue)] font-medium mb-2">
+            {{ member.role | escape }}
           </p>
+          {% endif %}
+          {% if member.summary %}
           <p class="text-sm text-gray-600 mb-3">
-            Builds production AI systems and products that bridge quantitative finance, software engineering, and business strategy.
+            {{ member.summary | escape }}
           </p>
-          <a href="https://closedloop.tech" class="text-sm font-semibold text-blue-600 hover:text-blue-800 underline">
-            Closedloop.tech
-          </a>
-        </article>
-
-        <!-- Andrei -->
-        <article class="border border-gray-100 rounded-lg p-5 bg-gray-50">
-          <div class="mb-4 rounded-lg overflow-hidden bg-gray-100">
-            <img src="{{ '/assets/images/andrei_smaht.png' | relative_url }}"
-                 alt="Andrei Radulescu-Banu"
-                 class="w-full h-56 object-cover">
-          </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-1">Andrei Radulescu-Banu</h3>
-          <p class="text-sm text-blue-700 font-medium mb-2">
-            Innovative Digital Health, Fintech, Robotics Solutions · Math PhD, MIT
-          </p>
-          <p class="text-sm text-gray-600 mb-3">
-            Designs and ships intelligent systems across healthcare, finance, and robotics, with deep mathematical and engineering rigor.
-          </p>
-          <a href="https://AnalytiqHub.com" class="text-sm font-semibold text-blue-600 hover:text-blue-800 underline">
-            AnalytiqHub.com
-          </a>
-        </article>
-
-        <!-- Vishnu -->
-        <article class="border border-gray-100 rounded-lg p-5 bg-gray-50">
-          <div class="mb-4 rounded-lg overflow-hidden bg-gray-100">
-            <img src="{{ '/assets/images/vishnu_smaht.png' | relative_url }}"
-                 alt="Vishnu Patel"
-                 class="w-full h-56 object-cover">
-          </div>
-          <h3 class="text-lg font-semibold text-gray-900 mb-1">Vishnu Patel</h3>
-          <p class="text-sm text-blue-700 font-medium mb-2">
-            Quantitative Finance Developer · BU Questrom MS
-          </p>
-          <p class="text-sm text-gray-600 mb-3">
-            Builds robust quantitative models and AI‑driven tools for financial markets and data‑intensive applications.
-          </p>
-        </article>
+          {% endif %}
+          <span class="text-sm font-semibold community-link">
+            View profile →
+          </span>
+        </a>
+        {% endfor %}
       </div>
+      <p class="text-center mt-8">
+        <a href="{{ '/people/' | relative_url }}" class="community-link font-medium">See all people →</a>
+      </p>
     </section>
 
     <!-- Empowering Section -->

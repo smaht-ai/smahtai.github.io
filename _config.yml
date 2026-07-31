@@ -75,6 +75,8 @@ minima:
 
 # Header navigation menu
 header_pages:
+  - title: "People"
+    url: "/people"
   - title: "Events"
     url: "/events"
   - title: "Talks"
@@ -105,6 +107,8 @@ header_pages:
 site_map:
   - title: "Explore"
     links:
+      - title: "People"
+        url: "/people"
       - title: "Events"
         url: "/events"
       - title: "Talks"
@@ -149,6 +153,9 @@ collections:
   posts:
     output: true
     permalink: /:categories/:title/
+  members:
+    output: true
+    permalink: /people/:name/
 
 # Pagination configuration for jekyll-paginate-v2
 pagination:
@@ -177,6 +184,11 @@ defaults:
       path: ""
     values:
       image: /assets/images/og-default.png
+  - scope:
+      path: ""
+      type: members
+    values:
+      layout: member
 
 # Twitter card type - summary_large_image gives a large banner preview
 twitter:
