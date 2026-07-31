@@ -61,6 +61,8 @@ header_pages:
     children:
       - title: "Technology"
         url: "/technology"
+      - title: "Talks"
+        url: "/talks"
   # - title: "Docs"
   #   url: "#"
   #   children:
@@ -94,6 +96,8 @@ site_map:
     links:
       - title: "Technology"
         url: "/technology"
+      - title: "Talks"
+        url: "/talks"
   # - title: "Documentation"
   #   links:
   #     - title: "Getting Started"
