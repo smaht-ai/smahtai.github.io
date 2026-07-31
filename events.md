@@ -8,21 +8,61 @@ permalink: /events/
   <header class="mb-12 pb-8 border-b border-gray-200">
     <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Events</h1>
     <p class="text-gray-600 text-xl leading-relaxed">
-      Meetups, workshops, and community gatherings from Smaht.ai
+      In the Greater Boston area
     </p>
   </header>
 
-  <main>
-    <div class="rounded-lg border border-gray-200 bg-gray-50 p-8 md:p-12 text-center">
-      <p class="text-xl font-semibold text-gray-900 mb-3">Under construction</p>
-      <p class="text-gray-600 max-w-xl mx-auto mb-6">
-        We’re putting together an events calendar. Check back soon, or
+  <main class="space-y-16">
+    <!-- Smaht events -->
+    <section aria-labelledby="smaht-events-heading" class="border-b border-gray-200 pb-8">
+      <h2 id="smaht-events-heading" class="text-2xl font-bold text-gray-900 mb-1">
+        Smaht.ai events
+      </h2>
+      <p class="text-gray-600">
+        Coming soon —
         <a href="{{ site.apply_url }}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium">apply to join</a>
-        and hear about gatherings in Slack.
+        for Slack updates, or browse
+        <a href="{{ '/talks/' | relative_url }}" class="text-blue-600 hover:text-blue-800 font-medium">member talks</a>.
       </p>
-      <a href="{{ '/talks/' | relative_url }}" class="inline-block text-blue-600 hover:text-blue-800 font-medium">
-        Browse member talks →
-      </a>
-    </div>
+    </section>
+
+    <!-- Greater Boston -->
+    <section aria-labelledby="boston-events-heading">
+      <h2 id="boston-events-heading" class="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+        Greater Boston events
+      </h2>
+      <p class="text-gray-600 mb-6 max-w-2xl">
+        We recommend the following calendars as having pretty good coverage of what’s happening locally:
+      </p>
+      <ul class="space-y-3 text-gray-800">
+        <li>
+          <a href="{{ site.event_calendars.startup_boston }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="text-blue-600 hover:text-blue-800 font-medium">
+            Startup Boston
+          </a>
+          <span class="text-gray-600"> — startup events, grants, pitches, and deadlines across New England</span>
+        </li>
+        <li>
+          <a href="{{ site.event_calendars.aicamp_boston }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="text-blue-600 hover:text-blue-800 font-medium">
+            AI Camp Boston
+          </a>
+          <span class="text-gray-600"> — AI meetups and workshops in US-Boston</span>
+        </li>
+        <li>
+          <a href="{{ site.event_calendars.ai_blueprint_ma }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="text-blue-600 hover:text-blue-800 font-medium">
+            AI Blueprint for MA
+          </a>
+          <span class="text-gray-600"> — in-person AI events calendar for Boston</span>
+        </li>
+      </ul>
+    </section>
   </main>
 </div>

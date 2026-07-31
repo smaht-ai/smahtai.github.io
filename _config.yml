@@ -13,6 +13,12 @@ url: "https://smaht.ai"
 # Membership application (Google Form)
 apply_url: "https://docs.google.com/forms/d/e/1FAIpQLSeWEKRhzM3_EvMi9Q-d8oF037vaWngHvg6iT0ZuIcxlQtlWnA/viewform"
 
+# Recommended Greater Boston event calendars
+event_calendars:
+  startup_boston: "https://www.startupbos.org/directory/events"
+  aicamp_boston: "https://www.aicamp.ai/event/eventsquery?city=US-Boston"
+  ai_blueprint_ma: "https://ai-blueprint-ma.com/events"
+
 # Minima date format
 # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
 minima:
