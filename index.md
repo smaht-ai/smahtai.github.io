@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Smaht.ai - Experienced AI Engineers & Entrepreneurs"
+title: "Smaht.ai - AI Engineers & Entrepreneurs"
 ---
 
 <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-16">
@@ -10,7 +10,7 @@ title: "Smaht.ai - Experienced AI Engineers & Entrepreneurs"
       <!-- Left Column - Text Content -->
       <div class="space-y-6 flex flex-col">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-          Experienced AI Engineers &amp; Entrepreneurs
+          AI Engineers &amp; Entrepreneurs
         </h1>
         <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
           A Boston-founded but global group of people who love building products and building companies.
