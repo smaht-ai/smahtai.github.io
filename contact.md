@@ -47,21 +47,25 @@ permalink: /contact/
           </span>
           <span class="block">
             <span class="block font-medium mb-1">Social</span>
-            <span class="opacity-90 flex items-center gap-2 flex-wrap">
-              <span>DM founder Sean Kruzel on</span>
-              <a href="https://www.linkedin.com/in/seankruzel" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 opacity-90 hover:opacity-100" aria-label="LinkedIn">
-                <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-                  <use href="{{ '/assets/minima-social-icons.svg' | relative_url }}#linkedin"/>
-                </svg>
-                <span class="underline">LinkedIn</span>
-              </a>
-              <span>or</span>
-              <a href="https://twitter.com/seankruzel" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 opacity-90 hover:opacity-100" aria-label="Twitter (X)">
-                <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-                  <use href="{{ '/assets/minima-social-icons.svg' | relative_url }}#twitter"/>
-                </svg>
-                <span class="underline">Twitter (X)</span>
-              </a>
+            <span class="opacity-90 block space-y-2">
+              <span class="flex items-center gap-2 flex-wrap">
+                <span>DM founder Sean Kruzel on</span>
+                <a href="https://www.linkedin.com/in/seankruzel" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 opacity-90 hover:opacity-100" aria-label="Sean Kruzel on LinkedIn">
+                  <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                    <use href="{{ '/assets/minima-social-icons.svg' | relative_url }}#linkedin"/>
+                  </svg>
+                  <span class="underline">LinkedIn</span>
+                </a>
+              </span>
+              <span class="flex items-center gap-2 flex-wrap">
+                <span>DM Andrei Radulescu-Banu on</span>
+                <a href="https://www.linkedin.com/in/andrei-radulescu-banu/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 opacity-90 hover:opacity-100" aria-label="Andrei Radulescu-Banu on LinkedIn">
+                  <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                    <use href="{{ '/assets/minima-social-icons.svg' | relative_url }}#linkedin"/>
+                  </svg>
+                  <span class="underline">LinkedIn</span>
+                </a>
+              </span>
             </span>
           </span>
         </span>
