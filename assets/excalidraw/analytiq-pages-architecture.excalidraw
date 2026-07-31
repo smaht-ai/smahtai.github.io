@@ -373,11 +373,11 @@
       "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
-      "text": "Theme (v0.1.8)",
+      "text": "Theme (v1.0.5)",
       "textAlign": "center",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "Theme (v0.1.8)",
+      "originalText": "Theme (v1.0.5)",
       "lineHeight": 1.25,
       "baseline": 18
     },

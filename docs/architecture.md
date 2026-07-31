@@ -51,10 +51,10 @@ The theme provides the presentation layer:
 # Gemfile
 gem "analytiq-pages-theme",
     git: "https://github.com/analytiq-hub/analytiq-pages-theme.git",
-    tag: "v0.1.8"
+    tag: "v1.0.5"
 ```
 
-Jekyll loads the theme from the Git repository (version v0.1.8), making all theme assets available to your site. The theme is specified in `_config.yml`:
+Jekyll loads the theme from the Git repository (version v1.0.5), making all theme assets available to your site. The theme is specified in `_config.yml`:
 
 ```yaml
 theme: analytiq-pages-theme
@@ -215,7 +215,7 @@ The starter includes a GitHub Actions workflow (`.github/workflows/pages.yml`) f
 
 ### Build Process
 
-1. **Dependency Resolution**: Bundler downloads the theme gem (v0.1.8) from GitHub
+1. **Dependency Resolution**: Bundler downloads the theme gem (v1.0.5) from GitHub
 2. **Theme Installation**: Theme files are available to Jekyll
 3. **Site Build**: Jekyll processes all content and applies theme
 4. **Asset Processing**: Copies assets, processes includes
@@ -302,7 +302,7 @@ analytiq-pages-starter/
 
 - **Minimal Overrides**: Only override what you need to change (currently just `docs-widget.html`)
 - **Document Changes**: Comment why you're overriding theme files
-- **Version Control**: Track theme version in Gemfile for reproducibility (currently v0.1.8)
+- **Version Control**: Track theme version in Gemfile for reproducibility (currently v1.0.5)
 - **Test Locally**: Always test changes with `bundle exec jekyll serve`
 
 ### Performance
@@ -398,7 +398,7 @@ To add an Excalidraw diagram:
 
 ### Theme Not Loading
 
-- Check Gemfile has correct theme reference with tag v0.1.8
+- Check Gemfile has correct theme reference with tag v1.0.5
 - Run `bundle install` to download theme
 - Verify `_config.yml` has `theme: analytiq-pages-theme`
 - Check GitHub repository access (theme is private/public)

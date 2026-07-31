@@ -382,11 +382,11 @@
       "locked": false,
       "fontSize": 14,
       "fontFamily": 1,
-      "text": "✓ Bundle install (theme v0.1.8)",
+      "text": "✓ Bundle install (theme v1.0.5)",
       "textAlign": "left",
       "verticalAlign": "top",
       "containerId": null,
-      "originalText": "✓ Bundle install (theme v0.1.8)",
+      "originalText": "✓ Bundle install (theme v1.0.5)",
       "lineHeight": 1.25,
       "baseline": 14
     },

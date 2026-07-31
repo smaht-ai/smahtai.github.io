@@ -76,7 +76,7 @@ The Analytiq Pages Starter is a Jekyll-based static site generator template that
 ### Theme Integration
 
 - **Theme**: Specified in `_config.yml` as `theme: analytiq-pages-theme`
-- **Theme version**: Pinned in `Gemfile` (currently v0.1.8)
+- **Theme version**: Pinned in `Gemfile` (currently v1.0.5)
 - **Overrides**: Create files in `_includes/` or `_layouts/` to override theme defaults
 
 ## Common Tasks
