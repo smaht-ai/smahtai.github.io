@@ -6,7 +6,8 @@
       "Bash(winget install:*)",
       "Bash(bundle exec:*)",
       "WebFetch(domain:127.0.0.1)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(git -C \"C:\\\\Users\\\\andy\\\\cc\\\\smahtai.github.io\" show --stat 15eb68b)"
     ]
   }
 }
